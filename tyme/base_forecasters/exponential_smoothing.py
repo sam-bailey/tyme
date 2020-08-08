@@ -44,7 +44,6 @@ class ExponentialSmoothing:
         return self._state
 
     def filter(self, x: np.ndarray) -> None:
-        # Initialize
         x_np = np.array(x).astype(float)
         level, trend, sigma = exp_smoothing_filter(x, self._alpha, self._beta, self._phi)
         self.set_state(level, trend, sigma)
