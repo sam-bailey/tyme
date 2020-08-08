@@ -1,16 +1,16 @@
 import numpy as np
-from typing import List, Union, Mapping, Tuple
+from typing import Mapping
 from .cython_exponential_smoothing import exp_smoothing_filter, exp_smoothing_forecaster
 
 
 class ExponentialSmoothing:
-    def __init__(self, alpha, beta, phi):
+    def __init__(self, alpha: float, beta: float, phi: float) -> None:
         self._alpha = np.float(alpha)
         self._beta = np.float(beta)
         self._phi = np.float(phi)
         self._state = None
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         strings = [
             "ExponentialSmoothingObject",
             "Params:",
@@ -33,23 +33,23 @@ class ExponentialSmoothing:
 
         return "\n".join(strings)
 
-    def set_state(self, level, trend, sigma):
+    def set_state(self, level: float, trend: float, sigma: float) -> None:
         self._state = dict(
             level=np.float(level),
             trend=np.float(trend),
             sigma=np.float(sigma)
         )
 
-    def get_state(self):
+    def get_state(self) -> Mapping[str,float]:
         return self._state
 
-    def filter(self, x):
+    def filter(self, x: np.ndarray) -> None:
         # Initialize
-        x_np = np.array(x)
+        x_np = np.array(x).astype(float)
         level, trend, sigma = exp_smoothing_filter(x, self._alpha, self._beta, self._phi)
         self.set_state(level, trend, sigma)
 
-    def forecast(self, n_steps_min = 1, n_steps_max = 1):
+    def forecast(self, n_steps_min: int = 1, n_steps_max: int = 1) -> np.ndarray:
         assert self._state is not None, "You have not set the state yet. Use either set_state() or filter() first."
 
         return exp_smoothing_forecaster(
