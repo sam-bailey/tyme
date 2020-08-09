@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "tyme.base_forecasters.cython_exponential_smoothing",
+        "name": "tyme.base_forecasters.robust_exponential_smoothing_cy",
         "sources": [
-            "tyme/base_forecasters/cython_exponential_smoothing.pyx"
+            "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx"
         ]
     },
-    "module_name": "tyme.base_forecasters.cython_exponential_smoothing"
+    "module_name": "tyme.base_forecasters.robust_exponential_smoothing_cy"
 }
 END: Cython Metadata */
 
@@ -615,8 +615,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__tyme__base_forecasters__cython_exponential_smoothing
-#define __PYX_HAVE_API__tyme__base_forecasters__cython_exponential_smoothing
+#define __PYX_HAVE__tyme__base_forecasters__robust_exponential_smoothing_cy
+#define __PYX_HAVE_API__tyme__base_forecasters__robust_exponential_smoothing_cy
 /* Early includes */
 #include <string.h>
 #include <stdio.h>
@@ -856,7 +856,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "tyme/base_forecasters/cython_exponential_smoothing.pyx",
+  "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx",
   "venv/lib/python3.6/site-packages/numpy/__init__.pxd",
   "venv/lib/python3.6/site-packages/Cython/Includes/cpython/type.pxd",
 };
@@ -1086,14 +1086,14 @@ typedef npy_double __pyx_t_5numpy_double_t;
  */
 typedef npy_longdouble __pyx_t_5numpy_longdouble_t;
 
-/* "tyme/base_forecasters/cython_exponential_smoothing.pyx":9
+/* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":9
  * 
  * DTYPE = np.float
  * ctypedef np.float_t DTYPE_t             # <<<<<<<<<<<<<<
  * 
  * @cython.boundscheck(False)
  */
-typedef __pyx_t_5numpy_float_t __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t;
+typedef __pyx_t_5numpy_float_t __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t;
 /* Declarations.proto */
 #if CYTHON_CCOMPLEX
   #ifdef __cplusplus
@@ -1156,31 +1156,31 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  * cdef inline object PyArray_MultiIterNew1(a):
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
-struct __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__etc;
-typedef struct __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__etc __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__etc;
-struct __pyx_opt_args_4tyme_16base_forecasters_28cython_exponential_smoothing_exp_smoothing_forecaster;
+struct __pyx_ctuple_6d695__e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__etc;
+typedef struct __pyx_ctuple_6d695__e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__etc __pyx_ctuple_6d695__e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__etc;
+struct __pyx_opt_args_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_robust_exp_smoothing_forecaster;
 
-/* "tyme/base_forecasters/cython_exponential_smoothing.pyx":76
- * @cython.boundscheck(False) # turn off bounds-checking for entire function
+/* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":73
+ * @cython.boundscheck(False)  # turn off bounds-checking for entire function
  * @cython.wraparound(False)
  * cdef (DTYPE_t, DTYPE_t, DTYPE_t) robust_starting_params(np.ndarray[DTYPE_t, ndim=1] x0):             # <<<<<<<<<<<<<<
  *     cdef DTYPE_t trend_0, level_0, sigma_0
  *     cdef np.ndarray[DTYPE_t, ndim=1] x0_diff = np.zeros(x0.shape[0] - 1, dtype=DTYPE)
  */
-struct __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__etc {
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t f0;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t f1;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t f2;
+struct __pyx_ctuple_6d695__e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__etc {
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t f0;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t f1;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t f2;
 };
 
-/* "tyme/base_forecasters/cython_exponential_smoothing.pyx":139
- * @cython.boundscheck(False) # turn off bounds-checking for entire function
+/* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":135
+ * @cython.boundscheck(False)  # turn off bounds-checking for entire function
  * @cython.wraparound(False)
- * cpdef np.ndarray[DTYPE_t, ndim=1] exp_smoothing_forecaster(DTYPE_t level, DTYPE_t trend, DTYPE_t phi,             # <<<<<<<<<<<<<<
- *                                                           int n_steps_min = 1, int n_steps_max = 1):
- * 
+ * cpdef np.ndarray[DTYPE_t, ndim=1] robust_exp_smoothing_forecaster(DTYPE_t level, DTYPE_t trend, DTYPE_t phi,             # <<<<<<<<<<<<<<
+ *                                                            int n_steps_min = 1, int n_steps_max = 1):
+ *     cdef np.ndarray[DTYPE_t, ndim=1] _forecast = np.zeros(n_steps_max - n_steps_min + 1, dtype=DTYPE)
  */
-struct __pyx_opt_args_4tyme_16base_forecasters_28cython_exponential_smoothing_exp_smoothing_forecaster {
+struct __pyx_opt_args_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_robust_exp_smoothing_forecaster {
   int __pyx_n;
   int n_steps_min;
   int n_steps_max;
@@ -1596,7 +1596,7 @@ static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 
 /* ToPyCTupleUtility.proto */
-static PyObject* __pyx_convert__to_py___pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__etc(__pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__etc);
+static PyObject* __pyx_convert__to_py___pyx_ctuple_6d695__e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__etc(__pyx_ctuple_6d695__e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__etc);
 
 /* RealImag.proto */
 #if CYTHON_CCOMPLEX
@@ -1758,19 +1758,19 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *, cha
 
 /* Module declarations from 'libc.math' */
 
-/* Module declarations from 'tyme.base_forecasters.cython_exponential_smoothing' */
-static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_mad(PyArrayObject *); /*proto*/
-static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_huber(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t); /*proto*/
-static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_bi_weight(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t); /*proto*/
-static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__etc __pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_robust_starting_params(PyArrayObject *); /*proto*/
-static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__etc __pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_exp_smoothing_filter(PyArrayObject *, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t, int __pyx_skip_dispatch); /*proto*/
-static PyArrayObject *__pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_exp_smoothing_forecaster(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t, int __pyx_skip_dispatch, struct __pyx_opt_args_4tyme_16base_forecasters_28cython_exponential_smoothing_exp_smoothing_forecaster *__pyx_optional_args); /*proto*/
-static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t = { "DTYPE_t", NULL, sizeof(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t), { 0 }, 0, 'R', 0, 0 };
-#define __Pyx_MODULE_NAME "tyme.base_forecasters.cython_exponential_smoothing"
-extern int __pyx_module_is_main_tyme__base_forecasters__cython_exponential_smoothing;
-int __pyx_module_is_main_tyme__base_forecasters__cython_exponential_smoothing = 0;
+/* Module declarations from 'tyme.base_forecasters.robust_exponential_smoothing_cy' */
+static __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_mad(PyArrayObject *); /*proto*/
+static __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_huber(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t); /*proto*/
+static __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_bi_weight(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t); /*proto*/
+static __pyx_ctuple_6d695__e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__etc __pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_robust_starting_params(PyArrayObject *); /*proto*/
+static __pyx_ctuple_6d695__e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__etc __pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_robust_exp_smoothing_filter(PyArrayObject *, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t, int __pyx_skip_dispatch); /*proto*/
+static PyArrayObject *__pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_robust_exp_smoothing_forecaster(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t, int __pyx_skip_dispatch, struct __pyx_opt_args_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_robust_exp_smoothing_forecaster *__pyx_optional_args); /*proto*/
+static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t = { "DTYPE_t", NULL, sizeof(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t), { 0 }, 0, 'R', 0, 0 };
+#define __Pyx_MODULE_NAME "tyme.base_forecasters.robust_exponential_smoothing_cy"
+extern int __pyx_module_is_main_tyme__base_forecasters__robust_exponential_smoothing_cy;
+int __pyx_module_is_main_tyme__base_forecasters__robust_exponential_smoothing_cy = 0;
 
-/* Implementation of 'tyme.base_forecasters.cython_exponential_smoothing' */
+/* Implementation of 'tyme.base_forecasters.robust_exponential_smoothing_cy' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_RuntimeError;
 static PyObject *__pyx_builtin_ValueError;
@@ -1799,10 +1799,10 @@ static const char __pyx_k_trend[] = "trend";
 static const char __pyx_k_zeros[] = "zeros";
 static const char __pyx_k_import[] = "__import__";
 static const char __pyx_k_median[] = "median";
+static const char __pyx_k_std_cy[] = "std_cy";
 static const char __pyx_k_ValueError[] = "ValueError";
 static const char __pyx_k_bottleneck[] = "bottleneck";
 static const char __pyx_k_ImportError[] = "ImportError";
-static const char __pyx_k_cyOptStdDev[] = "cyOptStdDev";
 static const char __pyx_k_n_steps_max[] = "n_steps_max";
 static const char __pyx_k_n_steps_min[] = "n_steps_min";
 static const char __pyx_k_RuntimeError[] = "RuntimeError";
@@ -1812,9 +1812,9 @@ static const char __pyx_k_unknown_dtype_code_in_numpy_pxd[] = "unknown dtype cod
 static const char __pyx_k_Format_string_allocated_too_shor[] = "Format string allocated too short, see comment in numpy.pxd";
 static const char __pyx_k_Non_native_byte_order_not_suppor[] = "Non-native byte order not supported";
 static const char __pyx_k_numpy_core_umath_failed_to_impor[] = "numpy.core.umath failed to import";
-static const char __pyx_k_tyme_base_forecasters_cython_exp[] = "tyme/base_forecasters/cython_exponential_smoothing.pyx";
+static const char __pyx_k_tyme_base_forecasters_robust_exp[] = "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx";
 static const char __pyx_k_Format_string_allocated_too_shor_2[] = "Format string allocated too short.";
-static const char __pyx_k_tyme_base_forecasters_cython_exp_2[] = "tyme.base_forecasters.cython_exponential_smoothing";
+static const char __pyx_k_tyme_base_forecasters_robust_exp_2[] = "tyme.base_forecasters.robust_exponential_smoothing_cy";
 static PyObject *__pyx_n_s_DTYPE;
 static PyObject *__pyx_kp_u_Format_string_allocated_too_shor;
 static PyObject *__pyx_kp_u_Format_string_allocated_too_shor_2;
@@ -1828,7 +1828,6 @@ static PyObject *__pyx_n_s_beta;
 static PyObject *__pyx_n_s_bn;
 static PyObject *__pyx_n_s_bottleneck;
 static PyObject *__pyx_n_s_cline_in_traceback;
-static PyObject *__pyx_n_s_cyOptStdDev;
 static PyObject *__pyx_n_s_dtype;
 static PyObject *__pyx_n_s_float;
 static PyObject *__pyx_n_s_i;
@@ -1847,17 +1846,18 @@ static PyObject *__pyx_kp_u_numpy_core_multiarray_failed_to;
 static PyObject *__pyx_kp_u_numpy_core_umath_failed_to_impor;
 static PyObject *__pyx_n_s_phi;
 static PyObject *__pyx_n_s_range;
+static PyObject *__pyx_n_s_std_cy;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_trend;
-static PyObject *__pyx_kp_s_tyme_base_forecasters_cython_exp;
-static PyObject *__pyx_n_s_tyme_base_forecasters_cython_exp_2;
+static PyObject *__pyx_kp_s_tyme_base_forecasters_robust_exp;
+static PyObject *__pyx_n_s_tyme_base_forecasters_robust_exp_2;
 static PyObject *__pyx_kp_u_unknown_dtype_code_in_numpy_pxd;
 static PyObject *__pyx_n_s_v;
 static PyObject *__pyx_n_s_x;
 static PyObject *__pyx_n_s_zeros;
-static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothing_cyOptStdDev(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_a); /* proto */
-static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothing_2exp_smoothing_filter(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_x, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_alpha, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_beta, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_phi); /* proto */
-static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothing_4exp_smoothing_forecaster(CYTHON_UNUSED PyObject *__pyx_self, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_level, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_trend, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_phi, int __pyx_v_n_steps_min, int __pyx_v_n_steps_max); /* proto */
+static PyObject *__pyx_pf_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_std_cy(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_a); /* proto */
+static PyObject *__pyx_pf_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_2robust_exp_smoothing_filter(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_x, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_alpha, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_beta, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_phi); /* proto */
+static PyObject *__pyx_pf_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_4robust_exp_smoothing_forecaster(CYTHON_UNUSED PyObject *__pyx_self, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_level, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_trend, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_phi, int __pyx_v_n_steps_min, int __pyx_v_n_steps_max); /* proto */
 static PyObject *__pyx_float_1_4826;
 static PyObject *__pyx_int_10;
 static PyObject *__pyx_slice_;
@@ -1870,26 +1870,26 @@ static PyObject *__pyx_tuple__7;
 static PyObject *__pyx_codeobj__8;
 /* Late includes */
 
-/* "tyme/base_forecasters/cython_exponential_smoothing.pyx":12
+/* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":12
  * 
  * @cython.boundscheck(False)
- * def cyOptStdDev(np.ndarray[DTYPE_t, ndim=1] a not None):             # <<<<<<<<<<<<<<
+ * def std_cy(np.ndarray[DTYPE_t, ndim=1] a not None):             # <<<<<<<<<<<<<<
  *     cdef Py_ssize_t i
  *     cdef Py_ssize_t n = a.shape[0]
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothing_1cyOptStdDev(PyObject *__pyx_self, PyObject *__pyx_v_a); /*proto*/
-static PyMethodDef __pyx_mdef_4tyme_16base_forecasters_28cython_exponential_smoothing_1cyOptStdDev = {"cyOptStdDev", (PyCFunction)__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothing_1cyOptStdDev, METH_O, 0};
-static PyObject *__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothing_1cyOptStdDev(PyObject *__pyx_self, PyObject *__pyx_v_a) {
+static PyObject *__pyx_pw_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_1std_cy(PyObject *__pyx_self, PyObject *__pyx_v_a); /*proto*/
+static PyMethodDef __pyx_mdef_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_1std_cy = {"std_cy", (PyCFunction)__pyx_pw_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_1std_cy, METH_O, 0};
+static PyObject *__pyx_pw_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_1std_cy(PyObject *__pyx_self, PyObject *__pyx_v_a) {
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("cyOptStdDev (wrapper)", 0);
+  __Pyx_RefNannySetupContext("std_cy (wrapper)", 0);
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), __pyx_ptype_5numpy_ndarray, 0, "a", 0))) __PYX_ERR(0, 12, __pyx_L1_error)
-  __pyx_r = __pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothing_cyOptStdDev(__pyx_self, ((PyArrayObject *)__pyx_v_a));
+  __pyx_r = __pyx_pf_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_std_cy(__pyx_self, ((PyArrayObject *)__pyx_v_a));
 
   /* function exit code */
   goto __pyx_L0;
@@ -1900,7 +1900,7 @@ static PyObject *__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothin
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothing_cyOptStdDev(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_a) {
+static PyObject *__pyx_pf_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_std_cy(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_a) {
   Py_ssize_t __pyx_v_i;
   Py_ssize_t __pyx_v_n;
   double __pyx_v_m;
@@ -1917,19 +1917,19 @@ static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothin
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("cyOptStdDev", 0);
+  __Pyx_RefNannySetupContext("std_cy", 0);
   __pyx_pybuffer_a.pybuffer.buf = NULL;
   __pyx_pybuffer_a.refcount = 0;
   __pyx_pybuffernd_a.data = NULL;
   __pyx_pybuffernd_a.rcbuffer = &__pyx_pybuffer_a;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_a.rcbuffer->pybuffer, (PyObject*)__pyx_v_a, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 12, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_a.rcbuffer->pybuffer, (PyObject*)__pyx_v_a, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 12, __pyx_L1_error)
   }
   __pyx_pybuffernd_a.diminfo[0].strides = __pyx_pybuffernd_a.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_a.diminfo[0].shape = __pyx_pybuffernd_a.rcbuffer->pybuffer.shape[0];
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":14
- * def cyOptStdDev(np.ndarray[DTYPE_t, ndim=1] a not None):
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":14
+ * def std_cy(np.ndarray[DTYPE_t, ndim=1] a not None):
  *     cdef Py_ssize_t i
  *     cdef Py_ssize_t n = a.shape[0]             # <<<<<<<<<<<<<<
  *     cdef double m = 0.0
@@ -1937,7 +1937,7 @@ static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothin
  */
   __pyx_v_n = (__pyx_v_a->dimensions[0]);
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":15
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":15
  *     cdef Py_ssize_t i
  *     cdef Py_ssize_t n = a.shape[0]
  *     cdef double m = 0.0             # <<<<<<<<<<<<<<
@@ -1946,7 +1946,7 @@ static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothin
  */
   __pyx_v_m = 0.0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":16
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":16
  *     cdef Py_ssize_t n = a.shape[0]
  *     cdef double m = 0.0
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -1958,7 +1958,7 @@ static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothin
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":17
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":17
  *     cdef double m = 0.0
  *     for i in range(n):
  *         m += a[i]             # <<<<<<<<<<<<<<
@@ -1967,10 +1967,10 @@ static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothin
  */
     __pyx_t_4 = __pyx_v_i;
     if (__pyx_t_4 < 0) __pyx_t_4 += __pyx_pybuffernd_a.diminfo[0].shape;
-    __pyx_v_m = (__pyx_v_m + (*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd_a.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_a.diminfo[0].strides)));
+    __pyx_v_m = (__pyx_v_m + (*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd_a.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_a.diminfo[0].strides)));
   }
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":18
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":18
  *     for i in range(n):
  *         m += a[i]
  *     m /= n             # <<<<<<<<<<<<<<
@@ -1983,20 +1983,20 @@ static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothin
   }
   __pyx_v_m = (__pyx_v_m / __pyx_v_n);
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":19
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":19
  *         m += a[i]
  *     m /= n
  *     cdef double v = 0.0             # <<<<<<<<<<<<<<
  *     for i in range(n):
- *         v += (a[i] - m)**2
+ *         v += (a[i] - m) ** 2
  */
   __pyx_v_v = 0.0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":20
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":20
  *     m /= n
  *     cdef double v = 0.0
  *     for i in range(n):             # <<<<<<<<<<<<<<
- *         v += (a[i] - m)**2
+ *         v += (a[i] - m) ** 2
  *     return sqrt(v / n)
  */
   __pyx_t_1 = __pyx_v_n;
@@ -2004,24 +2004,24 @@ static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothin
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":21
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":21
  *     cdef double v = 0.0
  *     for i in range(n):
- *         v += (a[i] - m)**2             # <<<<<<<<<<<<<<
+ *         v += (a[i] - m) ** 2             # <<<<<<<<<<<<<<
  *     return sqrt(v / n)
  * 
  */
     __pyx_t_4 = __pyx_v_i;
     if (__pyx_t_4 < 0) __pyx_t_4 += __pyx_pybuffernd_a.diminfo[0].shape;
-    __pyx_v_v = (__pyx_v_v + pow(((*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd_a.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_a.diminfo[0].strides)) - __pyx_v_m), 2.0));
+    __pyx_v_v = (__pyx_v_v + pow(((*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd_a.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_a.diminfo[0].strides)) - __pyx_v_m), 2.0));
   }
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":22
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":22
  *     for i in range(n):
- *         v += (a[i] - m)**2
+ *         v += (a[i] - m) ** 2
  *     return sqrt(v / n)             # <<<<<<<<<<<<<<
  * 
- * @cython.boundscheck(False) # turn off bounds-checking for entire function
+ * @cython.boundscheck(False)  # turn off bounds-checking for entire function
  */
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(__pyx_v_n == 0)) {
@@ -2034,10 +2034,10 @@ static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothin
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":12
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":12
  * 
  * @cython.boundscheck(False)
- * def cyOptStdDev(np.ndarray[DTYPE_t, ndim=1] a not None):             # <<<<<<<<<<<<<<
+ * def std_cy(np.ndarray[DTYPE_t, ndim=1] a not None):             # <<<<<<<<<<<<<<
  *     cdef Py_ssize_t i
  *     cdef Py_ssize_t n = a.shape[0]
  */
@@ -2051,7 +2051,7 @@ static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothin
     __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_a.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("tyme.base_forecasters.cython_exponential_smoothing.cyOptStdDev", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("tyme.base_forecasters.robust_exponential_smoothing_cy.std_cy", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -2062,35 +2062,35 @@ static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothin
   return __pyx_r;
 }
 
-/* "tyme/base_forecasters/cython_exponential_smoothing.pyx":26
- * @cython.boundscheck(False) # turn off bounds-checking for entire function
+/* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":26
+ * @cython.boundscheck(False)  # turn off bounds-checking for entire function
  * @cython.wraparound(False)
  * cdef DTYPE_t mad(np.ndarray[DTYPE_t, ndim=1] x):             # <<<<<<<<<<<<<<
  *     cdef DTYPE_t med, std_mad, std, output
  *     cdef np.ndarray[DTYPE_t, ndim=1] err = np.zeros(x.shape[0], dtype=DTYPE)
  */
 
-static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_mad(PyArrayObject *__pyx_v_x) {
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_med;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_std_mad;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_std;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_output;
+static __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_mad(PyArrayObject *__pyx_v_x) {
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_med;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_std_mad;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_std;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_output;
   PyArrayObject *__pyx_v_err = 0;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_tol;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_tol;
   int __pyx_v_i;
   int __pyx_v_xmax;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_err;
   __Pyx_Buffer __pyx_pybuffer_err;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_x;
   __Pyx_Buffer __pyx_pybuffer_x;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_r;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
   PyArrayObject *__pyx_t_5 = NULL;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_t_6;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_t_6;
   int __pyx_t_7;
   int __pyx_t_8;
   int __pyx_t_9;
@@ -2111,11 +2111,11 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
   __pyx_pybuffernd_x.rcbuffer = &__pyx_pybuffer_x;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x.rcbuffer->pybuffer, (PyObject*)__pyx_v_x, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 26, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x.rcbuffer->pybuffer, (PyObject*)__pyx_v_x, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 26, __pyx_L1_error)
   }
   __pyx_pybuffernd_x.diminfo[0].strides = __pyx_pybuffernd_x.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_x.diminfo[0].shape = __pyx_pybuffernd_x.rcbuffer->pybuffer.shape[0];
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":28
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":28
  * cdef DTYPE_t mad(np.ndarray[DTYPE_t, ndim=1] x):
  *     cdef DTYPE_t med, std_mad, std, output
  *     cdef np.ndarray[DTYPE_t, ndim=1] err = np.zeros(x.shape[0], dtype=DTYPE)             # <<<<<<<<<<<<<<
@@ -2149,7 +2149,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
   __pyx_t_5 = ((PyArrayObject *)__pyx_t_4);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_err.rcbuffer->pybuffer, (PyObject*)__pyx_t_5, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_err.rcbuffer->pybuffer, (PyObject*)__pyx_t_5, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_err = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_err.rcbuffer->pybuffer.buf = NULL;
       __PYX_ERR(0, 28, __pyx_L1_error)
     } else {__pyx_pybuffernd_err.diminfo[0].strides = __pyx_pybuffernd_err.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_err.diminfo[0].shape = __pyx_pybuffernd_err.rcbuffer->pybuffer.shape[0];
@@ -2159,7 +2159,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
   __pyx_v_err = ((PyArrayObject *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":29
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":29
  *     cdef DTYPE_t med, std_mad, std, output
  *     cdef np.ndarray[DTYPE_t, ndim=1] err = np.zeros(x.shape[0], dtype=DTYPE)
  *     cdef DTYPE_t tol = 0.000000001             # <<<<<<<<<<<<<<
@@ -2168,7 +2168,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
  */
   __pyx_v_tol = 0.000000001;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":31
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":31
  *     cdef DTYPE_t tol = 0.000000001
  *     cdef int i
  *     cdef int xmax = x.shape[0]             # <<<<<<<<<<<<<<
@@ -2177,7 +2177,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
  */
   __pyx_v_xmax = (__pyx_v_x->dimensions[0]);
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":33
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":33
  *     cdef int xmax = x.shape[0]
  * 
  *     med = bn.median(x)             # <<<<<<<<<<<<<<
@@ -2208,7 +2208,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_med = __pyx_t_6;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":34
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":34
  * 
  *     med = bn.median(x)
  *     for i in range(xmax):             # <<<<<<<<<<<<<<
@@ -2220,7 +2220,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
   for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
     __pyx_v_i = __pyx_t_9;
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":35
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":35
  *     med = bn.median(x)
  *     for i in range(xmax):
  *         err[i] = fabs(x[i] - med)             # <<<<<<<<<<<<<<
@@ -2229,14 +2229,14 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
  */
     __pyx_t_10 = __pyx_v_i;
     __pyx_t_11 = __pyx_v_i;
-    *__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd_err.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_err.diminfo[0].strides) = fabs(((*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd_x.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_x.diminfo[0].strides)) - __pyx_v_med));
+    *__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd_err.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_err.diminfo[0].strides) = fabs(((*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd_x.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_x.diminfo[0].strides)) - __pyx_v_med));
   }
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":37
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":37
  *         err[i] = fabs(x[i] - med)
  * 
  *     std_mad = 1.4826 * bn.median(err)             # <<<<<<<<<<<<<<
- *     std = cyOptStdDev(x)
+ *     std = std_cy(x)
  * 
  */
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_bn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
@@ -2266,14 +2266,14 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_std_mad = __pyx_t_6;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":38
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":38
  * 
  *     std_mad = 1.4826 * bn.median(err)
- *     std = cyOptStdDev(x)             # <<<<<<<<<<<<<<
+ *     std = std_cy(x)             # <<<<<<<<<<<<<<
  * 
  *     if std_mad > tol:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cyOptStdDev); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_std_cy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
@@ -2294,8 +2294,8 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_std = __pyx_t_6;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":40
- *     std = cyOptStdDev(x)
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":40
+ *     std = std_cy(x)
  * 
  *     if std_mad > tol:             # <<<<<<<<<<<<<<
  *         output = std_mad
@@ -2304,7 +2304,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
   __pyx_t_12 = ((__pyx_v_std_mad > __pyx_v_tol) != 0);
   if (__pyx_t_12) {
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":41
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":41
  * 
  *     if std_mad > tol:
  *         output = std_mad             # <<<<<<<<<<<<<<
@@ -2313,8 +2313,8 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
  */
     __pyx_v_output = __pyx_v_std_mad;
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":40
- *     std = cyOptStdDev(x)
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":40
+ *     std = std_cy(x)
  * 
  *     if std_mad > tol:             # <<<<<<<<<<<<<<
  *         output = std_mad
@@ -2323,7 +2323,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
     goto __pyx_L5;
   }
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":42
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":42
  *     if std_mad > tol:
  *         output = std_mad
  *     elif std > tol:             # <<<<<<<<<<<<<<
@@ -2333,7 +2333,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
   __pyx_t_12 = ((__pyx_v_std > __pyx_v_tol) != 0);
   if (__pyx_t_12) {
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":43
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":43
  *         output = std_mad
  *     elif std > tol:
  *         output = std             # <<<<<<<<<<<<<<
@@ -2342,7 +2342,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
  */
     __pyx_v_output = __pyx_v_std;
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":42
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":42
  *     if std_mad > tol:
  *         output = std_mad
  *     elif std > tol:             # <<<<<<<<<<<<<<
@@ -2352,7 +2352,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
     goto __pyx_L5;
   }
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":45
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":45
  *         output = std
  *     else:
  *         output = tol             # <<<<<<<<<<<<<<
@@ -2364,18 +2364,18 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
   }
   __pyx_L5:;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":47
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":47
  *         output = tol
  * 
  *     return output             # <<<<<<<<<<<<<<
  * 
- * 
+ * cdef DTYPE_t huber(DTYPE_t x):
  */
   __pyx_r = __pyx_v_output;
   goto __pyx_L0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":26
- * @cython.boundscheck(False) # turn off bounds-checking for entire function
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":26
+ * @cython.boundscheck(False)  # turn off bounds-checking for entire function
  * @cython.wraparound(False)
  * cdef DTYPE_t mad(np.ndarray[DTYPE_t, ndim=1] x):             # <<<<<<<<<<<<<<
  *     cdef DTYPE_t med, std_mad, std, output
@@ -2395,7 +2395,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_err.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_x.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_WriteUnraisable("tyme.base_forecasters.cython_exponential_smoothing.mad", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("tyme.base_forecasters.robust_exponential_smoothing_cy.mad", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   goto __pyx_L2;
   __pyx_L0:;
@@ -2407,23 +2407,23 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
   return __pyx_r;
 }
 
-/* "tyme/base_forecasters/cython_exponential_smoothing.pyx":50
- * 
+/* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":49
+ *     return output
  * 
  * cdef DTYPE_t huber(DTYPE_t x):             # <<<<<<<<<<<<<<
  *     cdef DTYPE_t output
  *     cdef DTYPE_t k = 3.0
  */
 
-static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_huber(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_x) {
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_output;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_k;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_r;
+static __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_huber(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_x) {
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_output;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_k;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("huber", 0);
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":52
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":51
  * cdef DTYPE_t huber(DTYPE_t x):
  *     cdef DTYPE_t output
  *     cdef DTYPE_t k = 3.0             # <<<<<<<<<<<<<<
@@ -2432,7 +2432,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
  */
   __pyx_v_k = 3.0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":53
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":52
  *     cdef DTYPE_t output
  *     cdef DTYPE_t k = 3.0
  *     if fabs(x) < k:             # <<<<<<<<<<<<<<
@@ -2442,7 +2442,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
   __pyx_t_1 = ((fabs(__pyx_v_x) < __pyx_v_k) != 0);
   if (__pyx_t_1) {
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":54
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":53
  *     cdef DTYPE_t k = 3.0
  *     if fabs(x) < k:
  *         output = x             # <<<<<<<<<<<<<<
@@ -2451,7 +2451,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
  */
     __pyx_v_output = __pyx_v_x;
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":53
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":52
  *     cdef DTYPE_t output
  *     cdef DTYPE_t k = 3.0
  *     if fabs(x) < k:             # <<<<<<<<<<<<<<
@@ -2461,7 +2461,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
     goto __pyx_L3;
   }
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":56
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":55
  *         output = x
  *     else:
  *         output = copysign(k, x)             # <<<<<<<<<<<<<<
@@ -2473,18 +2473,18 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
   }
   __pyx_L3:;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":58
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":57
  *         output = copysign(k, x)
  * 
  *     return output             # <<<<<<<<<<<<<<
  * 
- * 
+ * cdef DTYPE_t bi_weight(DTYPE_t x):
  */
   __pyx_r = __pyx_v_output;
   goto __pyx_L0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":50
- * 
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":49
+ *     return output
  * 
  * cdef DTYPE_t huber(DTYPE_t x):             # <<<<<<<<<<<<<<
  *     cdef DTYPE_t output
@@ -2497,19 +2497,19 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
   return __pyx_r;
 }
 
-/* "tyme/base_forecasters/cython_exponential_smoothing.pyx":61
- * 
+/* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":59
+ *     return output
  * 
  * cdef DTYPE_t bi_weight(DTYPE_t x):             # <<<<<<<<<<<<<<
  *     cdef DTYPE_t output
  *     cdef DTYPE_t k = 3.0
  */
 
-static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_bi_weight(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_x) {
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_output;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_k;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_c_k;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_r;
+static __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_bi_weight(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_x) {
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_output;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_k;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_c_k;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   int __pyx_lineno = 0;
@@ -2517,7 +2517,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("bi_weight", 0);
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":63
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":61
  * cdef DTYPE_t bi_weight(DTYPE_t x):
  *     cdef DTYPE_t output
  *     cdef DTYPE_t k = 3.0             # <<<<<<<<<<<<<<
@@ -2526,7 +2526,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
  */
   __pyx_v_k = 3.0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":64
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":62
  *     cdef DTYPE_t output
  *     cdef DTYPE_t k = 3.0
  *     cdef DTYPE_t c_k = 4.12             # <<<<<<<<<<<<<<
@@ -2535,7 +2535,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
  */
   __pyx_v_c_k = 4.12;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":66
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":64
  *     cdef DTYPE_t c_k = 4.12
  * 
  *     if fabs(x) < k:             # <<<<<<<<<<<<<<
@@ -2545,7 +2545,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
   __pyx_t_1 = ((fabs(__pyx_v_x) < __pyx_v_k) != 0);
   if (__pyx_t_1) {
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":67
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":65
  * 
  *     if fabs(x) < k:
  *         output = c_k * (1.0 - (1.0 - (x / k) ** 2) ** 3)             # <<<<<<<<<<<<<<
@@ -2554,11 +2554,11 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
  */
     if (unlikely(__pyx_v_k == 0)) {
       PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-      __PYX_ERR(0, 67, __pyx_L1_error)
+      __PYX_ERR(0, 65, __pyx_L1_error)
     }
     __pyx_v_output = (__pyx_v_c_k * (1.0 - pow((1.0 - pow((__pyx_v_x / __pyx_v_k), 2.0)), 3.0)));
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":66
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":64
  *     cdef DTYPE_t c_k = 4.12
  * 
  *     if fabs(x) < k:             # <<<<<<<<<<<<<<
@@ -2568,7 +2568,7 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
     goto __pyx_L3;
   }
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":69
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":67
  *         output = c_k * (1.0 - (1.0 - (x / k) ** 2) ** 3)
  *     else:
  *         output = c_k             # <<<<<<<<<<<<<<
@@ -2580,18 +2580,18 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
   }
   __pyx_L3:;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":71
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":69
  *         output = c_k
  * 
  *     return output             # <<<<<<<<<<<<<<
  * 
- * 
+ * @cython.boundscheck(False)  # turn off bounds-checking for entire function
  */
   __pyx_r = __pyx_v_output;
   goto __pyx_L0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":61
- * 
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":59
+ *     return output
  * 
  * cdef DTYPE_t bi_weight(DTYPE_t x):             # <<<<<<<<<<<<<<
  *     cdef DTYPE_t output
@@ -2600,25 +2600,25 @@ static __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t _
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_WriteUnraisable("tyme.base_forecasters.cython_exponential_smoothing.bi_weight", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("tyme.base_forecasters.robust_exponential_smoothing_cy.bi_weight", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "tyme/base_forecasters/cython_exponential_smoothing.pyx":76
- * @cython.boundscheck(False) # turn off bounds-checking for entire function
+/* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":73
+ * @cython.boundscheck(False)  # turn off bounds-checking for entire function
  * @cython.wraparound(False)
  * cdef (DTYPE_t, DTYPE_t, DTYPE_t) robust_starting_params(np.ndarray[DTYPE_t, ndim=1] x0):             # <<<<<<<<<<<<<<
  *     cdef DTYPE_t trend_0, level_0, sigma_0
  *     cdef np.ndarray[DTYPE_t, ndim=1] x0_diff = np.zeros(x0.shape[0] - 1, dtype=DTYPE)
  */
 
-static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__etc __pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_robust_starting_params(PyArrayObject *__pyx_v_x0) {
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_trend_0;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_level_0;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_sigma_0;
+static __pyx_ctuple_6d695__e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__etc __pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_robust_starting_params(PyArrayObject *__pyx_v_x0) {
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_trend_0;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_level_0;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_sigma_0;
   PyArrayObject *__pyx_v_x0_diff = 0;
   PyArrayObject *__pyx_v_x0_diff_medians = 0;
   PyArrayObject *__pyx_v_levels = 0;
@@ -2636,7 +2636,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
   __Pyx_Buffer __pyx_pybuffer_x0_diff;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_x0_diff_medians;
   __Pyx_Buffer __pyx_pybuffer_x0_diff_medians;
-  __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__etc __pyx_r;
+  __pyx_ctuple_6d695__e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__etc __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -2655,9 +2655,9 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
   int __pyx_t_15;
   Py_ssize_t __pyx_t_16;
   Py_ssize_t __pyx_t_17;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_t_18;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_t_18;
   int __pyx_t_19;
-  __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__etc __pyx_t_20;
+  __pyx_ctuple_6d695__e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__etc __pyx_t_20;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -2684,23 +2684,155 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
   __pyx_pybuffernd_x0.rcbuffer = &__pyx_pybuffer_x0;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x0.rcbuffer->pybuffer, (PyObject*)__pyx_v_x0, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 76, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x0.rcbuffer->pybuffer, (PyObject*)__pyx_v_x0, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 73, __pyx_L1_error)
   }
   __pyx_pybuffernd_x0.diminfo[0].strides = __pyx_pybuffernd_x0.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_x0.diminfo[0].shape = __pyx_pybuffernd_x0.rcbuffer->pybuffer.shape[0];
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":78
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":75
  * cdef (DTYPE_t, DTYPE_t, DTYPE_t) robust_starting_params(np.ndarray[DTYPE_t, ndim=1] x0):
  *     cdef DTYPE_t trend_0, level_0, sigma_0
  *     cdef np.ndarray[DTYPE_t, ndim=1] x0_diff = np.zeros(x0.shape[0] - 1, dtype=DTYPE)             # <<<<<<<<<<<<<<
  *     cdef np.ndarray[DTYPE_t, ndim=1] x0_diff_medians = np.zeros(x0.shape[0], dtype=DTYPE)
  *     cdef np.ndarray[DTYPE_t, ndim=1] levels = np.zeros(x0.shape[0], dtype=DTYPE)
  */
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyInt_From_long(((__pyx_v_x0->dimensions[0]) - 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
+  __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_5 = ((PyArrayObject *)__pyx_t_4);
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x0_diff.rcbuffer->pybuffer, (PyObject*)__pyx_t_5, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
+      __pyx_v_x0_diff = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_x0_diff.rcbuffer->pybuffer.buf = NULL;
+      __PYX_ERR(0, 75, __pyx_L1_error)
+    } else {__pyx_pybuffernd_x0_diff.diminfo[0].strides = __pyx_pybuffernd_x0_diff.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_x0_diff.diminfo[0].shape = __pyx_pybuffernd_x0_diff.rcbuffer->pybuffer.shape[0];
+    }
+  }
+  __pyx_t_5 = 0;
+  __pyx_v_x0_diff = ((PyArrayObject *)__pyx_t_4);
+  __pyx_t_4 = 0;
+
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":76
+ *     cdef DTYPE_t trend_0, level_0, sigma_0
+ *     cdef np.ndarray[DTYPE_t, ndim=1] x0_diff = np.zeros(x0.shape[0] - 1, dtype=DTYPE)
+ *     cdef np.ndarray[DTYPE_t, ndim=1] x0_diff_medians = np.zeros(x0.shape[0], dtype=DTYPE)             # <<<<<<<<<<<<<<
+ *     cdef np.ndarray[DTYPE_t, ndim=1] levels = np.zeros(x0.shape[0], dtype=DTYPE)
+ *     cdef np.ndarray[DTYPE_t, ndim=1] sigmas = np.zeros(x0.shape[0], dtype=DTYPE)
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_zeros); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyInt_From_Py_intptr_t((__pyx_v_x0->dimensions[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
+  __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_2) < 0) __PYX_ERR(0, 76, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_6 = ((PyArrayObject *)__pyx_t_2);
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x0_diff_medians.rcbuffer->pybuffer, (PyObject*)__pyx_t_6, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
+      __pyx_v_x0_diff_medians = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_x0_diff_medians.rcbuffer->pybuffer.buf = NULL;
+      __PYX_ERR(0, 76, __pyx_L1_error)
+    } else {__pyx_pybuffernd_x0_diff_medians.diminfo[0].strides = __pyx_pybuffernd_x0_diff_medians.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_x0_diff_medians.diminfo[0].shape = __pyx_pybuffernd_x0_diff_medians.rcbuffer->pybuffer.shape[0];
+    }
+  }
+  __pyx_t_6 = 0;
+  __pyx_v_x0_diff_medians = ((PyArrayObject *)__pyx_t_2);
+  __pyx_t_2 = 0;
+
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":77
+ *     cdef np.ndarray[DTYPE_t, ndim=1] x0_diff = np.zeros(x0.shape[0] - 1, dtype=DTYPE)
+ *     cdef np.ndarray[DTYPE_t, ndim=1] x0_diff_medians = np.zeros(x0.shape[0], dtype=DTYPE)
+ *     cdef np.ndarray[DTYPE_t, ndim=1] levels = np.zeros(x0.shape[0], dtype=DTYPE)             # <<<<<<<<<<<<<<
+ *     cdef np.ndarray[DTYPE_t, ndim=1] sigmas = np.zeros(x0.shape[0], dtype=DTYPE)
+ *     cdef int i, j
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyInt_From_Py_intptr_t((__pyx_v_x0->dimensions[0])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_GIVEREF(__pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
+  __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 77, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_7 = ((PyArrayObject *)__pyx_t_1);
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_levels.rcbuffer->pybuffer, (PyObject*)__pyx_t_7, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
+      __pyx_v_levels = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_levels.rcbuffer->pybuffer.buf = NULL;
+      __PYX_ERR(0, 77, __pyx_L1_error)
+    } else {__pyx_pybuffernd_levels.diminfo[0].strides = __pyx_pybuffernd_levels.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_levels.diminfo[0].shape = __pyx_pybuffernd_levels.rcbuffer->pybuffer.shape[0];
+    }
+  }
+  __pyx_t_7 = 0;
+  __pyx_v_levels = ((PyArrayObject *)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":78
+ *     cdef np.ndarray[DTYPE_t, ndim=1] x0_diff_medians = np.zeros(x0.shape[0], dtype=DTYPE)
+ *     cdef np.ndarray[DTYPE_t, ndim=1] levels = np.zeros(x0.shape[0], dtype=DTYPE)
+ *     cdef np.ndarray[DTYPE_t, ndim=1] sigmas = np.zeros(x0.shape[0], dtype=DTYPE)             # <<<<<<<<<<<<<<
+ *     cdef int i, j
+ *     cdef int xmax = x0.shape[0]
+ */
   __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_long(((__pyx_v_x0->dimensions[0]) - 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t((__pyx_v_x0->dimensions[0])); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -2719,144 +2851,12 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 78, __pyx_L1_error)
-  __pyx_t_5 = ((PyArrayObject *)__pyx_t_4);
-  {
-    __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x0_diff.rcbuffer->pybuffer, (PyObject*)__pyx_t_5, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
-      __pyx_v_x0_diff = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_x0_diff.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 78, __pyx_L1_error)
-    } else {__pyx_pybuffernd_x0_diff.diminfo[0].strides = __pyx_pybuffernd_x0_diff.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_x0_diff.diminfo[0].shape = __pyx_pybuffernd_x0_diff.rcbuffer->pybuffer.shape[0];
-    }
-  }
-  __pyx_t_5 = 0;
-  __pyx_v_x0_diff = ((PyArrayObject *)__pyx_t_4);
-  __pyx_t_4 = 0;
-
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":79
- *     cdef DTYPE_t trend_0, level_0, sigma_0
- *     cdef np.ndarray[DTYPE_t, ndim=1] x0_diff = np.zeros(x0.shape[0] - 1, dtype=DTYPE)
- *     cdef np.ndarray[DTYPE_t, ndim=1] x0_diff_medians = np.zeros(x0.shape[0], dtype=DTYPE)             # <<<<<<<<<<<<<<
- *     cdef np.ndarray[DTYPE_t, ndim=1] levels = np.zeros(x0.shape[0], dtype=DTYPE)
- *     cdef np.ndarray[DTYPE_t, ndim=1] sigmas = np.zeros(x0.shape[0], dtype=DTYPE)
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 79, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_zeros); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_From_Py_intptr_t((__pyx_v_x0->dimensions[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 79, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GIVEREF(__pyx_t_4);
-  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
-  __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 79, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_2) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 79, __pyx_L1_error)
-  __pyx_t_6 = ((PyArrayObject *)__pyx_t_2);
-  {
-    __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x0_diff_medians.rcbuffer->pybuffer, (PyObject*)__pyx_t_6, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
-      __pyx_v_x0_diff_medians = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_x0_diff_medians.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 79, __pyx_L1_error)
-    } else {__pyx_pybuffernd_x0_diff_medians.diminfo[0].strides = __pyx_pybuffernd_x0_diff_medians.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_x0_diff_medians.diminfo[0].shape = __pyx_pybuffernd_x0_diff_medians.rcbuffer->pybuffer.shape[0];
-    }
-  }
-  __pyx_t_6 = 0;
-  __pyx_v_x0_diff_medians = ((PyArrayObject *)__pyx_t_2);
-  __pyx_t_2 = 0;
-
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":80
- *     cdef np.ndarray[DTYPE_t, ndim=1] x0_diff = np.zeros(x0.shape[0] - 1, dtype=DTYPE)
- *     cdef np.ndarray[DTYPE_t, ndim=1] x0_diff_medians = np.zeros(x0.shape[0], dtype=DTYPE)
- *     cdef np.ndarray[DTYPE_t, ndim=1] levels = np.zeros(x0.shape[0], dtype=DTYPE)             # <<<<<<<<<<<<<<
- *     cdef np.ndarray[DTYPE_t, ndim=1] sigmas = np.zeros(x0.shape[0], dtype=DTYPE)
- *     cdef int i,j
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 80, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_Py_intptr_t((__pyx_v_x0->dimensions[0])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
-  __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 80, __pyx_L1_error)
-  __pyx_t_7 = ((PyArrayObject *)__pyx_t_1);
-  {
-    __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_levels.rcbuffer->pybuffer, (PyObject*)__pyx_t_7, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
-      __pyx_v_levels = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_levels.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 80, __pyx_L1_error)
-    } else {__pyx_pybuffernd_levels.diminfo[0].strides = __pyx_pybuffernd_levels.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_levels.diminfo[0].shape = __pyx_pybuffernd_levels.rcbuffer->pybuffer.shape[0];
-    }
-  }
-  __pyx_t_7 = 0;
-  __pyx_v_levels = ((PyArrayObject *)__pyx_t_1);
-  __pyx_t_1 = 0;
-
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":81
- *     cdef np.ndarray[DTYPE_t, ndim=1] x0_diff_medians = np.zeros(x0.shape[0], dtype=DTYPE)
- *     cdef np.ndarray[DTYPE_t, ndim=1] levels = np.zeros(x0.shape[0], dtype=DTYPE)
- *     cdef np.ndarray[DTYPE_t, ndim=1] sigmas = np.zeros(x0.shape[0], dtype=DTYPE)             # <<<<<<<<<<<<<<
- *     cdef int i,j
- *     cdef int xmax = x0.shape[0]
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t((__pyx_v_x0->dimensions[0])); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
-  __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 81, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 81, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 81, __pyx_L1_error)
   __pyx_t_8 = ((PyArrayObject *)__pyx_t_4);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_sigmas.rcbuffer->pybuffer, (PyObject*)__pyx_t_8, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_sigmas.rcbuffer->pybuffer, (PyObject*)__pyx_t_8, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_sigmas = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_sigmas.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 81, __pyx_L1_error)
+      __PYX_ERR(0, 78, __pyx_L1_error)
     } else {__pyx_pybuffernd_sigmas.diminfo[0].strides = __pyx_pybuffernd_sigmas.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_sigmas.diminfo[0].shape = __pyx_pybuffernd_sigmas.rcbuffer->pybuffer.shape[0];
     }
   }
@@ -2864,16 +2864,16 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
   __pyx_v_sigmas = ((PyArrayObject *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":83
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":80
  *     cdef np.ndarray[DTYPE_t, ndim=1] sigmas = np.zeros(x0.shape[0], dtype=DTYPE)
- *     cdef int i,j
+ *     cdef int i, j
  *     cdef int xmax = x0.shape[0]             # <<<<<<<<<<<<<<
  * 
  *     for i in range(xmax):
  */
   __pyx_v_xmax = (__pyx_v_x0->dimensions[0]);
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":85
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":82
  *     cdef int xmax = x0.shape[0]
  * 
  *     for i in range(xmax):             # <<<<<<<<<<<<<<
@@ -2885,7 +2885,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
   for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
     __pyx_v_i = __pyx_t_11;
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":86
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":83
  * 
  *     for i in range(xmax):
  *         for j in range(xmax):             # <<<<<<<<<<<<<<
@@ -2897,7 +2897,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
     for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
       __pyx_v_j = __pyx_t_14;
 
-      /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":87
+      /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":84
  *     for i in range(xmax):
  *         for j in range(xmax):
  *             if i > j:             # <<<<<<<<<<<<<<
@@ -2907,7 +2907,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
       __pyx_t_15 = ((__pyx_v_i > __pyx_v_j) != 0);
       if (__pyx_t_15) {
 
-        /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":88
+        /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":85
  *         for j in range(xmax):
  *             if i > j:
  *                 x0_diff[j] = (x0[i] - x0[j]) / (i - j)             # <<<<<<<<<<<<<<
@@ -2916,16 +2916,16 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
  */
         __pyx_t_16 = __pyx_v_i;
         __pyx_t_17 = __pyx_v_j;
-        __pyx_t_18 = ((*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd_x0.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_x0.diminfo[0].strides)) - (*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd_x0.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_x0.diminfo[0].strides)));
+        __pyx_t_18 = ((*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd_x0.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_x0.diminfo[0].strides)) - (*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd_x0.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_x0.diminfo[0].strides)));
         __pyx_t_19 = (__pyx_v_i - __pyx_v_j);
         if (unlikely(__pyx_t_19 == 0)) {
           PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-          __PYX_ERR(0, 88, __pyx_L1_error)
+          __PYX_ERR(0, 85, __pyx_L1_error)
         }
         __pyx_t_17 = __pyx_v_j;
-        *__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd_x0_diff.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_x0_diff.diminfo[0].strides) = (__pyx_t_18 / ((__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t)__pyx_t_19));
+        *__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd_x0_diff.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_x0_diff.diminfo[0].strides) = (__pyx_t_18 / ((__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t)__pyx_t_19));
 
-        /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":87
+        /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":84
  *     for i in range(xmax):
  *         for j in range(xmax):
  *             if i > j:             # <<<<<<<<<<<<<<
@@ -2935,7 +2935,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
         goto __pyx_L7;
       }
 
-      /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":89
+      /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":86
  *             if i > j:
  *                 x0_diff[j] = (x0[i] - x0[j]) / (i - j)
  *             elif i < j:             # <<<<<<<<<<<<<<
@@ -2945,7 +2945,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
       __pyx_t_15 = ((__pyx_v_i < __pyx_v_j) != 0);
       if (__pyx_t_15) {
 
-        /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":90
+        /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":87
  *                 x0_diff[j] = (x0[i] - x0[j]) / (i - j)
  *             elif i < j:
  *                 x0_diff[j - 1] = (x0[i] - x0[j]) / (i - j)             # <<<<<<<<<<<<<<
@@ -2954,16 +2954,16 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
  */
         __pyx_t_17 = __pyx_v_i;
         __pyx_t_16 = __pyx_v_j;
-        __pyx_t_18 = ((*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd_x0.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_x0.diminfo[0].strides)) - (*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd_x0.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_x0.diminfo[0].strides)));
+        __pyx_t_18 = ((*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd_x0.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_x0.diminfo[0].strides)) - (*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd_x0.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_x0.diminfo[0].strides)));
         __pyx_t_19 = (__pyx_v_i - __pyx_v_j);
         if (unlikely(__pyx_t_19 == 0)) {
           PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-          __PYX_ERR(0, 90, __pyx_L1_error)
+          __PYX_ERR(0, 87, __pyx_L1_error)
         }
         __pyx_t_16 = (__pyx_v_j - 1);
-        *__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd_x0_diff.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_x0_diff.diminfo[0].strides) = (__pyx_t_18 / ((__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t)__pyx_t_19));
+        *__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd_x0_diff.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_x0_diff.diminfo[0].strides) = (__pyx_t_18 / ((__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t)__pyx_t_19));
 
-        /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":89
+        /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":86
  *             if i > j:
  *                 x0_diff[j] = (x0[i] - x0[j]) / (i - j)
  *             elif i < j:             # <<<<<<<<<<<<<<
@@ -2974,16 +2974,16 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
       __pyx_L7:;
     }
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":91
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":88
  *             elif i < j:
  *                 x0_diff[j - 1] = (x0[i] - x0[j]) / (i - j)
  *         x0_diff_medians[i] = bn.median(x0_diff)             # <<<<<<<<<<<<<<
  * 
  *     trend_0 = bn.median(x0_diff_medians)
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_bn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_bn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_median); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_median); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -2998,25 +2998,25 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
     }
     __pyx_t_4 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_1, ((PyObject *)__pyx_v_x0_diff)) : __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_x0_diff));
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_18 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_18 == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 91, __pyx_L1_error)
+    __pyx_t_18 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_18 == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_16 = __pyx_v_i;
-    *__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd_x0_diff_medians.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_x0_diff_medians.diminfo[0].strides) = __pyx_t_18;
+    *__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd_x0_diff_medians.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_x0_diff_medians.diminfo[0].strides) = __pyx_t_18;
   }
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":93
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":90
  *         x0_diff_medians[i] = bn.median(x0_diff)
  * 
  *     trend_0 = bn.median(x0_diff_medians)             # <<<<<<<<<<<<<<
  * 
  *     for i in range(xmax):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_bn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_bn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 90, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_median); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_median); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 90, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -3031,14 +3031,14 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
   }
   __pyx_t_4 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_3, ((PyObject *)__pyx_v_x0_diff_medians)) : __Pyx_PyObject_CallOneArg(__pyx_t_1, ((PyObject *)__pyx_v_x0_diff_medians));
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 93, __pyx_L1_error)
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 90, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_18 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_18 == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 93, __pyx_L1_error)
+  __pyx_t_18 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_18 == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 90, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_trend_0 = __pyx_t_18;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":95
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":92
  *     trend_0 = bn.median(x0_diff_medians)
  * 
  *     for i in range(xmax):             # <<<<<<<<<<<<<<
@@ -3050,7 +3050,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
   for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
     __pyx_v_i = __pyx_t_11;
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":96
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":93
  * 
  *     for i in range(xmax):
  *         levels[i] = x0[i] - trend_0 * i             # <<<<<<<<<<<<<<
@@ -3059,19 +3059,19 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
  */
     __pyx_t_16 = __pyx_v_i;
     __pyx_t_17 = __pyx_v_i;
-    *__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd_levels.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_levels.diminfo[0].strides) = ((*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd_x0.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_x0.diminfo[0].strides)) - (__pyx_v_trend_0 * __pyx_v_i));
+    *__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd_levels.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_levels.diminfo[0].strides) = ((*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd_x0.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_x0.diminfo[0].strides)) - (__pyx_v_trend_0 * __pyx_v_i));
   }
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":97
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":94
  *     for i in range(xmax):
  *         levels[i] = x0[i] - trend_0 * i
  *     level_0 = bn.median(levels)             # <<<<<<<<<<<<<<
  * 
  *     for i in range(xmax):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_bn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_bn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_median); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_median); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = NULL;
@@ -3086,14 +3086,14 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
   }
   __pyx_t_4 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_1, ((PyObject *)__pyx_v_levels)) : __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_levels));
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 97, __pyx_L1_error)
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_18 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_18 == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_18 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_18 == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_level_0 = __pyx_t_18;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":99
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":96
  *     level_0 = bn.median(levels)
  * 
  *     for i in range(xmax):             # <<<<<<<<<<<<<<
@@ -3105,7 +3105,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
   for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
     __pyx_v_i = __pyx_t_11;
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":100
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":97
  * 
  *     for i in range(xmax):
  *         sigmas[i] = x0[i] - level_0 - trend_0 * i             # <<<<<<<<<<<<<<
@@ -3114,24 +3114,24 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
  */
     __pyx_t_16 = __pyx_v_i;
     __pyx_t_17 = __pyx_v_i;
-    *__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd_sigmas.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_sigmas.diminfo[0].strides) = (((*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd_x0.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_x0.diminfo[0].strides)) - __pyx_v_level_0) - (__pyx_v_trend_0 * __pyx_v_i));
+    *__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd_sigmas.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_sigmas.diminfo[0].strides) = (((*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd_x0.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_x0.diminfo[0].strides)) - __pyx_v_level_0) - (__pyx_v_trend_0 * __pyx_v_i));
   }
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":101
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":98
  *     for i in range(xmax):
  *         sigmas[i] = x0[i] - level_0 - trend_0 * i
  *     sigma_0 = mad(sigmas)             # <<<<<<<<<<<<<<
  * 
  *     return trend_0, level_0, sigma_0
  */
-  __pyx_v_sigma_0 = __pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_mad(((PyArrayObject *)__pyx_v_sigmas));
+  __pyx_v_sigma_0 = __pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_mad(((PyArrayObject *)__pyx_v_sigmas));
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":103
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":100
  *     sigma_0 = mad(sigmas)
  * 
  *     return trend_0, level_0, sigma_0             # <<<<<<<<<<<<<<
  * 
- * 
+ * @cython.boundscheck(False)  # turn off bounds-checking for entire function
  */
   __pyx_t_20.f0 = __pyx_v_trend_0;
   __pyx_t_20.f1 = __pyx_v_level_0;
@@ -3139,8 +3139,8 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
   __pyx_r = __pyx_t_20;
   goto __pyx_L0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":76
- * @cython.boundscheck(False) # turn off bounds-checking for entire function
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":73
+ * @cython.boundscheck(False)  # turn off bounds-checking for entire function
  * @cython.wraparound(False)
  * cdef (DTYPE_t, DTYPE_t, DTYPE_t) robust_starting_params(np.ndarray[DTYPE_t, ndim=1] x0):             # <<<<<<<<<<<<<<
  *     cdef DTYPE_t trend_0, level_0, sigma_0
@@ -3163,7 +3163,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_x0_diff.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_x0_diff_medians.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_WriteUnraisable("tyme.base_forecasters.cython_exponential_smoothing.robust_starting_params", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("tyme.base_forecasters.robust_exponential_smoothing_cy.robust_starting_params", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __Pyx_pretend_to_initialize(&__pyx_r);
   goto __pyx_L2;
   __pyx_L0:;
@@ -3181,36 +3181,36 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
   return __pyx_r;
 }
 
-/* "tyme/base_forecasters/cython_exponential_smoothing.pyx":108
- * @cython.boundscheck(False) # turn off bounds-checking for entire function
+/* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":104
+ * @cython.boundscheck(False)  # turn off bounds-checking for entire function
  * @cython.wraparound(False)
- * cpdef (DTYPE_t, DTYPE_t, DTYPE_t) exp_smoothing_filter(np.ndarray[DTYPE_t, ndim=1] x, DTYPE_t alpha, DTYPE_t beta, DTYPE_t phi):             # <<<<<<<<<<<<<<
+ * cpdef (DTYPE_t, DTYPE_t, DTYPE_t) robust_exp_smoothing_filter(np.ndarray[DTYPE_t, ndim=1] x, DTYPE_t alpha,             # <<<<<<<<<<<<<<
+ *                                                               DTYPE_t beta, DTYPE_t phi):
  *     # Initialize
- *     cdef DTYPE_t trend, level, sigma, robust_x_i, forecast
  */
 
-static PyObject *__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothing_3exp_smoothing_filter(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__etc __pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_exp_smoothing_filter(PyArrayObject *__pyx_v_x, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_alpha, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_beta, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_phi, CYTHON_UNUSED int __pyx_skip_dispatch) {
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_trend;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_level;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_sigma;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_robust_x_i;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_forecast;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_new_trend;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_new_level;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_new_sigma;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_lam_s;
+static PyObject *__pyx_pw_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_3robust_exp_smoothing_filter(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static __pyx_ctuple_6d695__e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__etc __pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_robust_exp_smoothing_filter(PyArrayObject *__pyx_v_x, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_alpha, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_beta, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_phi, CYTHON_UNUSED int __pyx_skip_dispatch) {
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_trend;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_level;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_sigma;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_robust_x_i;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_forecast;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_new_trend;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_new_level;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_new_sigma;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_lam_s;
   int __pyx_v_i;
   int __pyx_v_xmax;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_x;
   __Pyx_Buffer __pyx_pybuffer_x;
-  __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__etc __pyx_r;
+  __pyx_ctuple_6d695__e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__etc __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
-  __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__etc __pyx_t_2;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_t_3;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_t_4;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_t_5;
+  __pyx_ctuple_6d695__e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__etc __pyx_t_2;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_t_3;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_t_4;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_t_5;
   int __pyx_t_6;
   int __pyx_t_7;
   int __pyx_t_8;
@@ -3218,18 +3218,18 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("exp_smoothing_filter", 0);
+  __Pyx_RefNannySetupContext("robust_exp_smoothing_filter", 0);
   __pyx_pybuffer_x.pybuffer.buf = NULL;
   __pyx_pybuffer_x.refcount = 0;
   __pyx_pybuffernd_x.data = NULL;
   __pyx_pybuffernd_x.rcbuffer = &__pyx_pybuffer_x;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x.rcbuffer->pybuffer, (PyObject*)__pyx_v_x, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 108, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x.rcbuffer->pybuffer, (PyObject*)__pyx_v_x, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 104, __pyx_L1_error)
   }
   __pyx_pybuffernd_x.diminfo[0].strides = __pyx_pybuffernd_x.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_x.diminfo[0].shape = __pyx_pybuffernd_x.rcbuffer->pybuffer.shape[0];
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":113
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":110
  *     cdef DTYPE_t new_trend, new_level, new_sigma
  * 
  *     cdef DTYPE_t lam_s = 0.1             # <<<<<<<<<<<<<<
@@ -3238,7 +3238,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
  */
   __pyx_v_lam_s = 0.1;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":115
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":112
  *     cdef DTYPE_t lam_s = 0.1
  *     cdef int i
  *     cdef int xmax = x.shape[0]             # <<<<<<<<<<<<<<
@@ -3247,17 +3247,17 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
  */
   __pyx_v_xmax = (__pyx_v_x->dimensions[0]);
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":117
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":114
  *     cdef int xmax = x.shape[0]
  * 
  *     trend, level, sigma = robust_starting_params(x[:10])             # <<<<<<<<<<<<<<
  * 
  *     for i in range(xmax):
  */
-  __pyx_t_1 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_x), __pyx_slice_); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 117, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_x), __pyx_slice_); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 117, __pyx_L1_error)
-  __pyx_t_2 = __pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_robust_starting_params(((PyArrayObject *)__pyx_t_1));
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_t_2 = __pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_robust_starting_params(((PyArrayObject *)__pyx_t_1));
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = __pyx_t_2.f0;
   __pyx_t_4 = __pyx_t_2.f1;
@@ -3266,7 +3266,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
   __pyx_v_level = __pyx_t_4;
   __pyx_v_sigma = __pyx_t_5;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":119
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":116
  *     trend, level, sigma = robust_starting_params(x[:10])
  * 
  *     for i in range(xmax):             # <<<<<<<<<<<<<<
@@ -3278,7 +3278,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
     __pyx_v_i = __pyx_t_8;
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":120
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":117
  * 
  *     for i in range(xmax):
  *         forecast = level + phi * trend             # <<<<<<<<<<<<<<
@@ -3287,7 +3287,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
  */
     __pyx_v_forecast = (__pyx_v_level + (__pyx_v_phi * __pyx_v_trend));
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":123
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":120
  * 
  *         new_sigma = sigma * sqrt(
  *             lam_s * bi_weight((x[i] - forecast) / sigma) +             # <<<<<<<<<<<<<<
@@ -3295,22 +3295,22 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
  *         )
  */
     __pyx_t_9 = __pyx_v_i;
-    __pyx_t_5 = ((*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd_x.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_x.diminfo[0].strides)) - __pyx_v_forecast);
+    __pyx_t_5 = ((*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd_x.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_x.diminfo[0].strides)) - __pyx_v_forecast);
     if (unlikely(__pyx_v_sigma == 0)) {
       PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-      __PYX_ERR(0, 123, __pyx_L1_error)
+      __PYX_ERR(0, 120, __pyx_L1_error)
     }
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":122
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":119
  *         forecast = level + phi * trend
  * 
  *         new_sigma = sigma * sqrt(             # <<<<<<<<<<<<<<
  *             lam_s * bi_weight((x[i] - forecast) / sigma) +
  *             (1.0 - lam_s)
  */
-    __pyx_v_new_sigma = (__pyx_v_sigma * sqrt(((__pyx_v_lam_s * __pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_bi_weight((__pyx_t_5 / __pyx_v_sigma))) + (1.0 - __pyx_v_lam_s))));
+    __pyx_v_new_sigma = (__pyx_v_sigma * sqrt(((__pyx_v_lam_s * __pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_bi_weight((__pyx_t_5 / __pyx_v_sigma))) + (1.0 - __pyx_v_lam_s))));
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":126
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":123
  *             (1.0 - lam_s)
  *         )
  *         robust_x_i = forecast + huber((x[i] - forecast) / new_sigma) * new_sigma             # <<<<<<<<<<<<<<
@@ -3318,14 +3318,14 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
  *         new_trend = beta * (new_level - level) + (1.0 - beta) * phi * trend
  */
     __pyx_t_9 = __pyx_v_i;
-    __pyx_t_5 = ((*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd_x.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_x.diminfo[0].strides)) - __pyx_v_forecast);
+    __pyx_t_5 = ((*__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd_x.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_x.diminfo[0].strides)) - __pyx_v_forecast);
     if (unlikely(__pyx_v_new_sigma == 0)) {
       PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-      __PYX_ERR(0, 126, __pyx_L1_error)
+      __PYX_ERR(0, 123, __pyx_L1_error)
     }
-    __pyx_v_robust_x_i = (__pyx_v_forecast + (__pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_huber((__pyx_t_5 / __pyx_v_new_sigma)) * __pyx_v_new_sigma));
+    __pyx_v_robust_x_i = (__pyx_v_forecast + (__pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_huber((__pyx_t_5 / __pyx_v_new_sigma)) * __pyx_v_new_sigma));
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":127
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":124
  *         )
  *         robust_x_i = forecast + huber((x[i] - forecast) / new_sigma) * new_sigma
  *         new_level = level + alpha * (robust_x_i - forecast)             # <<<<<<<<<<<<<<
@@ -3334,7 +3334,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
  */
     __pyx_v_new_level = (__pyx_v_level + (__pyx_v_alpha * (__pyx_v_robust_x_i - __pyx_v_forecast)));
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":128
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":125
  *         robust_x_i = forecast + huber((x[i] - forecast) / new_sigma) * new_sigma
  *         new_level = level + alpha * (robust_x_i - forecast)
  *         new_trend = beta * (new_level - level) + (1.0 - beta) * phi * trend             # <<<<<<<<<<<<<<
@@ -3343,7 +3343,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
  */
     __pyx_v_new_trend = ((__pyx_v_beta * (__pyx_v_new_level - __pyx_v_level)) + (((1.0 - __pyx_v_beta) * __pyx_v_phi) * __pyx_v_trend));
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":130
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":127
  *         new_trend = beta * (new_level - level) + (1.0 - beta) * phi * trend
  * 
  *         level = new_level             # <<<<<<<<<<<<<<
@@ -3352,7 +3352,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
  */
     __pyx_v_level = __pyx_v_new_level;
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":131
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":128
  * 
  *         level = new_level
  *         trend = new_trend             # <<<<<<<<<<<<<<
@@ -3361,7 +3361,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
  */
     __pyx_v_trend = __pyx_v_new_trend;
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":132
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":129
  *         level = new_level
  *         trend = new_trend
  *         sigma = new_sigma             # <<<<<<<<<<<<<<
@@ -3371,12 +3371,12 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
     __pyx_v_sigma = __pyx_v_new_sigma;
   }
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":134
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":131
  *         sigma = new_sigma
  * 
  *     return level, trend, sigma             # <<<<<<<<<<<<<<
  * 
- * 
+ * @cython.boundscheck(False)  # turn off bounds-checking for entire function
  */
   __pyx_t_2.f0 = __pyx_v_level;
   __pyx_t_2.f1 = __pyx_v_trend;
@@ -3384,12 +3384,12 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
   __pyx_r = __pyx_t_2;
   goto __pyx_L0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":108
- * @cython.boundscheck(False) # turn off bounds-checking for entire function
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":104
+ * @cython.boundscheck(False)  # turn off bounds-checking for entire function
  * @cython.wraparound(False)
- * cpdef (DTYPE_t, DTYPE_t, DTYPE_t) exp_smoothing_filter(np.ndarray[DTYPE_t, ndim=1] x, DTYPE_t alpha, DTYPE_t beta, DTYPE_t phi):             # <<<<<<<<<<<<<<
+ * cpdef (DTYPE_t, DTYPE_t, DTYPE_t) robust_exp_smoothing_filter(np.ndarray[DTYPE_t, ndim=1] x, DTYPE_t alpha,             # <<<<<<<<<<<<<<
+ *                                                               DTYPE_t beta, DTYPE_t phi):
  *     # Initialize
- *     cdef DTYPE_t trend, level, sigma, robust_x_i, forecast
  */
 
   /* function exit code */
@@ -3401,7 +3401,7 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
     __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_x.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_WriteUnraisable("tyme.base_forecasters.cython_exponential_smoothing.exp_smoothing_filter", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("tyme.base_forecasters.robust_exponential_smoothing_cy.robust_exp_smoothing_filter", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __Pyx_pretend_to_initialize(&__pyx_r);
   goto __pyx_L2;
   __pyx_L0:;
@@ -3412,18 +3412,18 @@ static __pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cytho
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothing_3exp_smoothing_filter(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothing_3exp_smoothing_filter(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_3robust_exp_smoothing_filter(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_3robust_exp_smoothing_filter(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyArrayObject *__pyx_v_x = 0;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_alpha;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_beta;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_phi;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_alpha;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_beta;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_phi;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("exp_smoothing_filter (wrapper)", 0);
+  __Pyx_RefNannySetupContext("robust_exp_smoothing_filter (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_x,&__pyx_n_s_alpha,&__pyx_n_s_beta,&__pyx_n_s_phi,0};
     PyObject* values[4] = {0,0,0,0};
@@ -3451,23 +3451,23 @@ static PyObject *__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothin
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_alpha)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("exp_smoothing_filter", 1, 4, 4, 1); __PYX_ERR(0, 108, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("robust_exp_smoothing_filter", 1, 4, 4, 1); __PYX_ERR(0, 104, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_beta)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("exp_smoothing_filter", 1, 4, 4, 2); __PYX_ERR(0, 108, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("robust_exp_smoothing_filter", 1, 4, 4, 2); __PYX_ERR(0, 104, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_phi)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("exp_smoothing_filter", 1, 4, 4, 3); __PYX_ERR(0, 108, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("robust_exp_smoothing_filter", 1, 4, 4, 3); __PYX_ERR(0, 104, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "exp_smoothing_filter") < 0)) __PYX_ERR(0, 108, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "robust_exp_smoothing_filter") < 0)) __PYX_ERR(0, 104, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -3478,20 +3478,20 @@ static PyObject *__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothin
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
     }
     __pyx_v_x = ((PyArrayObject *)values[0]);
-    __pyx_v_alpha = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_alpha == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 108, __pyx_L3_error)
-    __pyx_v_beta = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_beta == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 108, __pyx_L3_error)
-    __pyx_v_phi = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_phi == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 108, __pyx_L3_error)
+    __pyx_v_alpha = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_alpha == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 104, __pyx_L3_error)
+    __pyx_v_beta = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_beta == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 105, __pyx_L3_error)
+    __pyx_v_phi = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_phi == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 105, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("exp_smoothing_filter", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 108, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("robust_exp_smoothing_filter", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 104, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("tyme.base_forecasters.cython_exponential_smoothing.exp_smoothing_filter", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("tyme.base_forecasters.robust_exponential_smoothing_cy.robust_exp_smoothing_filter", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_x), __pyx_ptype_5numpy_ndarray, 1, "x", 0))) __PYX_ERR(0, 108, __pyx_L1_error)
-  __pyx_r = __pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothing_2exp_smoothing_filter(__pyx_self, __pyx_v_x, __pyx_v_alpha, __pyx_v_beta, __pyx_v_phi);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_x), __pyx_ptype_5numpy_ndarray, 1, "x", 0))) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_r = __pyx_pf_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_2robust_exp_smoothing_filter(__pyx_self, __pyx_v_x, __pyx_v_alpha, __pyx_v_beta, __pyx_v_phi);
 
   /* function exit code */
   goto __pyx_L0;
@@ -3502,7 +3502,7 @@ static PyObject *__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothin
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothing_2exp_smoothing_filter(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_x, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_alpha, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_beta, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_phi) {
+static PyObject *__pyx_pf_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_2robust_exp_smoothing_filter(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_x, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_alpha, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_beta, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_phi) {
   __Pyx_LocalBuf_ND __pyx_pybuffernd_x;
   __Pyx_Buffer __pyx_pybuffer_x;
   PyObject *__pyx_r = NULL;
@@ -3511,18 +3511,18 @@ static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothin
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("exp_smoothing_filter", 0);
+  __Pyx_RefNannySetupContext("robust_exp_smoothing_filter", 0);
   __pyx_pybuffer_x.pybuffer.buf = NULL;
   __pyx_pybuffer_x.refcount = 0;
   __pyx_pybuffernd_x.data = NULL;
   __pyx_pybuffernd_x.rcbuffer = &__pyx_pybuffer_x;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x.rcbuffer->pybuffer, (PyObject*)__pyx_v_x, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 108, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x.rcbuffer->pybuffer, (PyObject*)__pyx_v_x, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 104, __pyx_L1_error)
   }
   __pyx_pybuffernd_x.diminfo[0].strides = __pyx_pybuffernd_x.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_x.diminfo[0].shape = __pyx_pybuffernd_x.rcbuffer->pybuffer.shape[0];
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__etc(__pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_exp_smoothing_filter(__pyx_v_x, __pyx_v_alpha, __pyx_v_beta, __pyx_v_phi, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_6d695__e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__etc(__pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_robust_exp_smoothing_filter(__pyx_v_x, __pyx_v_alpha, __pyx_v_beta, __pyx_v_phi, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3537,7 +3537,7 @@ static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothin
     __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_x.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("tyme.base_forecasters.cython_exponential_smoothing.exp_smoothing_filter", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("tyme.base_forecasters.robust_exponential_smoothing_cy.robust_exp_smoothing_filter", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -3548,16 +3548,16 @@ static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothin
   return __pyx_r;
 }
 
-/* "tyme/base_forecasters/cython_exponential_smoothing.pyx":139
- * @cython.boundscheck(False) # turn off bounds-checking for entire function
+/* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":135
+ * @cython.boundscheck(False)  # turn off bounds-checking for entire function
  * @cython.wraparound(False)
- * cpdef np.ndarray[DTYPE_t, ndim=1] exp_smoothing_forecaster(DTYPE_t level, DTYPE_t trend, DTYPE_t phi,             # <<<<<<<<<<<<<<
- *                                                           int n_steps_min = 1, int n_steps_max = 1):
- * 
+ * cpdef np.ndarray[DTYPE_t, ndim=1] robust_exp_smoothing_forecaster(DTYPE_t level, DTYPE_t trend, DTYPE_t phi,             # <<<<<<<<<<<<<<
+ *                                                            int n_steps_min = 1, int n_steps_max = 1):
+ *     cdef np.ndarray[DTYPE_t, ndim=1] _forecast = np.zeros(n_steps_max - n_steps_min + 1, dtype=DTYPE)
  */
 
-static PyObject *__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothing_5exp_smoothing_forecaster(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyArrayObject *__pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_exp_smoothing_forecaster(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_level, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_trend, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_phi, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_4tyme_16base_forecasters_28cython_exponential_smoothing_exp_smoothing_forecaster *__pyx_optional_args) {
+static PyObject *__pyx_pw_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_5robust_exp_smoothing_forecaster(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyArrayObject *__pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_robust_exp_smoothing_forecaster(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_level, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_trend, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_phi, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_robust_exp_smoothing_forecaster *__pyx_optional_args) {
   int __pyx_v_n_steps_min = ((int)1);
   int __pyx_v_n_steps_max = ((int)1);
   PyArrayObject *__pyx_v__forecast = 0;
@@ -3577,13 +3577,13 @@ static PyArrayObject *__pyx_f_4tyme_16base_forecasters_28cython_exponential_smoo
   long __pyx_t_7;
   int __pyx_t_8;
   Py_ssize_t __pyx_t_9;
-  int __pyx_t_10;
-  int __pyx_t_11;
+  long __pyx_t_10;
+  long __pyx_t_11;
   int __pyx_t_12;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("exp_smoothing_forecaster", 0);
+  __Pyx_RefNannySetupContext("robust_exp_smoothing_forecaster", 0);
   if (__pyx_optional_args) {
     if (__pyx_optional_args->__pyx_n > 0) {
       __pyx_v_n_steps_min = __pyx_optional_args->n_steps_min;
@@ -3597,43 +3597,43 @@ static PyArrayObject *__pyx_f_4tyme_16base_forecasters_28cython_exponential_smoo
   __pyx_pybuffernd__forecast.data = NULL;
   __pyx_pybuffernd__forecast.rcbuffer = &__pyx_pybuffer__forecast;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":142
- *                                                           int n_steps_min = 1, int n_steps_max = 1):
- * 
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":137
+ * cpdef np.ndarray[DTYPE_t, ndim=1] robust_exp_smoothing_forecaster(DTYPE_t level, DTYPE_t trend, DTYPE_t phi,
+ *                                                            int n_steps_min = 1, int n_steps_max = 1):
  *     cdef np.ndarray[DTYPE_t, ndim=1] _forecast = np.zeros(n_steps_max - n_steps_min + 1, dtype=DTYPE)             # <<<<<<<<<<<<<<
  *     cdef int k, i, j
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_long(((__pyx_v_n_steps_max - __pyx_v_n_steps_min) + 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_long(((__pyx_v_n_steps_max - __pyx_v_n_steps_min) + 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DTYPE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 142, __pyx_L1_error)
+  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 137, __pyx_L1_error)
   __pyx_t_5 = ((PyArrayObject *)__pyx_t_4);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd__forecast.rcbuffer->pybuffer, (PyObject*)__pyx_t_5, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd__forecast.rcbuffer->pybuffer, (PyObject*)__pyx_t_5, &__Pyx_TypeInfo_nn___pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
       __pyx_v__forecast = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd__forecast.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 142, __pyx_L1_error)
+      __PYX_ERR(0, 137, __pyx_L1_error)
     } else {__pyx_pybuffernd__forecast.diminfo[0].strides = __pyx_pybuffernd__forecast.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd__forecast.diminfo[0].shape = __pyx_pybuffernd__forecast.rcbuffer->pybuffer.shape[0];
     }
   }
@@ -3641,63 +3641,63 @@ static PyArrayObject *__pyx_f_4tyme_16base_forecasters_28cython_exponential_smoo
   __pyx_v__forecast = ((PyArrayObject *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":145
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":140
  *     cdef int k, i, j
  * 
  *     for i in range(n_steps_max - n_steps_min + 1):             # <<<<<<<<<<<<<<
  *         k = n_steps_min + i
- *         _forecast[i-1] = level
+ *         _forecast[i] = level
  */
   __pyx_t_6 = ((__pyx_v_n_steps_max - __pyx_v_n_steps_min) + 1);
   __pyx_t_7 = __pyx_t_6;
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
     __pyx_v_i = __pyx_t_8;
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":146
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":141
  * 
  *     for i in range(n_steps_max - n_steps_min + 1):
  *         k = n_steps_min + i             # <<<<<<<<<<<<<<
- *         _forecast[i-1] = level
- *         for j in range(1, k):
+ *         _forecast[i] = level
+ *         for j in range(1, k + 1):
  */
     __pyx_v_k = (__pyx_v_n_steps_min + __pyx_v_i);
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":147
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":142
  *     for i in range(n_steps_max - n_steps_min + 1):
  *         k = n_steps_min + i
- *         _forecast[i-1] = level             # <<<<<<<<<<<<<<
- *         for j in range(1, k):
- *             _forecast[i-1] += trend * phi**j
+ *         _forecast[i] = level             # <<<<<<<<<<<<<<
+ *         for j in range(1, k + 1):
+ *             _forecast[i] += trend * phi ** j
  */
-    __pyx_t_9 = (__pyx_v_i - 1);
-    *__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd__forecast.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd__forecast.diminfo[0].strides) = __pyx_v_level;
+    __pyx_t_9 = __pyx_v_i;
+    *__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd__forecast.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd__forecast.diminfo[0].strides) = __pyx_v_level;
 
-    /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":148
+    /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":143
  *         k = n_steps_min + i
- *         _forecast[i-1] = level
- *         for j in range(1, k):             # <<<<<<<<<<<<<<
- *             _forecast[i-1] += trend * phi**j
+ *         _forecast[i] = level
+ *         for j in range(1, k + 1):             # <<<<<<<<<<<<<<
+ *             _forecast[i] += trend * phi ** j
  * 
  */
-    __pyx_t_10 = __pyx_v_k;
+    __pyx_t_10 = (__pyx_v_k + 1);
     __pyx_t_11 = __pyx_t_10;
     for (__pyx_t_12 = 1; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
       __pyx_v_j = __pyx_t_12;
 
-      /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":149
- *         _forecast[i-1] = level
- *         for j in range(1, k):
- *             _forecast[i-1] += trend * phi**j             # <<<<<<<<<<<<<<
+      /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":144
+ *         _forecast[i] = level
+ *         for j in range(1, k + 1):
+ *             _forecast[i] += trend * phi ** j             # <<<<<<<<<<<<<<
  * 
  *     return _forecast
  */
-      __pyx_t_9 = (__pyx_v_i - 1);
-      *__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t *, __pyx_pybuffernd__forecast.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd__forecast.diminfo[0].strides) += (__pyx_v_trend * pow(__pyx_v_phi, ((__pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t)__pyx_v_j)));
+      __pyx_t_9 = __pyx_v_i;
+      *__Pyx_BufPtrStrided1d(__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t *, __pyx_pybuffernd__forecast.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd__forecast.diminfo[0].strides) += (__pyx_v_trend * pow(__pyx_v_phi, ((__pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t)__pyx_v_j)));
     }
   }
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":151
- *             _forecast[i-1] += trend * phi**j
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":146
+ *             _forecast[i] += trend * phi ** j
  * 
  *     return _forecast             # <<<<<<<<<<<<<<
  */
@@ -3706,12 +3706,12 @@ static PyArrayObject *__pyx_f_4tyme_16base_forecasters_28cython_exponential_smoo
   __pyx_r = ((PyArrayObject *)__pyx_v__forecast);
   goto __pyx_L0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":139
- * @cython.boundscheck(False) # turn off bounds-checking for entire function
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":135
+ * @cython.boundscheck(False)  # turn off bounds-checking for entire function
  * @cython.wraparound(False)
- * cpdef np.ndarray[DTYPE_t, ndim=1] exp_smoothing_forecaster(DTYPE_t level, DTYPE_t trend, DTYPE_t phi,             # <<<<<<<<<<<<<<
- *                                                           int n_steps_min = 1, int n_steps_max = 1):
- * 
+ * cpdef np.ndarray[DTYPE_t, ndim=1] robust_exp_smoothing_forecaster(DTYPE_t level, DTYPE_t trend, DTYPE_t phi,             # <<<<<<<<<<<<<<
+ *                                                            int n_steps_min = 1, int n_steps_max = 1):
+ *     cdef np.ndarray[DTYPE_t, ndim=1] _forecast = np.zeros(n_steps_max - n_steps_min + 1, dtype=DTYPE)
  */
 
   /* function exit code */
@@ -3726,7 +3726,7 @@ static PyArrayObject *__pyx_f_4tyme_16base_forecasters_28cython_exponential_smoo
     __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd__forecast.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("tyme.base_forecasters.cython_exponential_smoothing.exp_smoothing_forecaster", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("tyme.base_forecasters.robust_exponential_smoothing_cy.robust_exp_smoothing_forecaster", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   goto __pyx_L2;
   __pyx_L0:;
@@ -3739,11 +3739,11 @@ static PyArrayObject *__pyx_f_4tyme_16base_forecasters_28cython_exponential_smoo
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothing_5exp_smoothing_forecaster(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothing_5exp_smoothing_forecaster(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_level;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_trend;
-  __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_phi;
+static PyObject *__pyx_pw_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_5robust_exp_smoothing_forecaster(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_5robust_exp_smoothing_forecaster(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_level;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_trend;
+  __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_phi;
   int __pyx_v_n_steps_min;
   int __pyx_v_n_steps_max;
   int __pyx_lineno = 0;
@@ -3751,7 +3751,7 @@ static PyObject *__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothin
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("exp_smoothing_forecaster (wrapper)", 0);
+  __Pyx_RefNannySetupContext("robust_exp_smoothing_forecaster (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_level,&__pyx_n_s_trend,&__pyx_n_s_phi,&__pyx_n_s_n_steps_min,&__pyx_n_s_n_steps_max,0};
     PyObject* values[5] = {0,0,0,0,0};
@@ -3781,13 +3781,13 @@ static PyObject *__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothin
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_trend)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("exp_smoothing_forecaster", 0, 3, 5, 1); __PYX_ERR(0, 139, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("robust_exp_smoothing_forecaster", 0, 3, 5, 1); __PYX_ERR(0, 135, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_phi)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("exp_smoothing_forecaster", 0, 3, 5, 2); __PYX_ERR(0, 139, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("robust_exp_smoothing_forecaster", 0, 3, 5, 2); __PYX_ERR(0, 135, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
@@ -3803,7 +3803,7 @@ static PyObject *__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothin
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "exp_smoothing_forecaster") < 0)) __PYX_ERR(0, 139, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "robust_exp_smoothing_forecaster") < 0)) __PYX_ERR(0, 135, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3818,49 +3818,49 @@ static PyObject *__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothin
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_level = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_level == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 139, __pyx_L3_error)
-    __pyx_v_trend = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_trend == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 139, __pyx_L3_error)
-    __pyx_v_phi = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_phi == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 139, __pyx_L3_error)
+    __pyx_v_level = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_level == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 135, __pyx_L3_error)
+    __pyx_v_trend = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_trend == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 135, __pyx_L3_error)
+    __pyx_v_phi = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_phi == ((npy_double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 135, __pyx_L3_error)
     if (values[3]) {
-      __pyx_v_n_steps_min = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_n_steps_min == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 140, __pyx_L3_error)
+      __pyx_v_n_steps_min = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_n_steps_min == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 136, __pyx_L3_error)
     } else {
       __pyx_v_n_steps_min = ((int)1);
     }
     if (values[4]) {
-      __pyx_v_n_steps_max = __Pyx_PyInt_As_int(values[4]); if (unlikely((__pyx_v_n_steps_max == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 140, __pyx_L3_error)
+      __pyx_v_n_steps_max = __Pyx_PyInt_As_int(values[4]); if (unlikely((__pyx_v_n_steps_max == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 136, __pyx_L3_error)
     } else {
       __pyx_v_n_steps_max = ((int)1);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("exp_smoothing_forecaster", 0, 3, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 139, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("robust_exp_smoothing_forecaster", 0, 3, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 135, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("tyme.base_forecasters.cython_exponential_smoothing.exp_smoothing_forecaster", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("tyme.base_forecasters.robust_exponential_smoothing_cy.robust_exp_smoothing_forecaster", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothing_4exp_smoothing_forecaster(__pyx_self, __pyx_v_level, __pyx_v_trend, __pyx_v_phi, __pyx_v_n_steps_min, __pyx_v_n_steps_max);
+  __pyx_r = __pyx_pf_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_4robust_exp_smoothing_forecaster(__pyx_self, __pyx_v_level, __pyx_v_trend, __pyx_v_phi, __pyx_v_n_steps_min, __pyx_v_n_steps_max);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothing_4exp_smoothing_forecaster(CYTHON_UNUSED PyObject *__pyx_self, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_level, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_trend, __pyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t __pyx_v_phi, int __pyx_v_n_steps_min, int __pyx_v_n_steps_max) {
+static PyObject *__pyx_pf_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_4robust_exp_smoothing_forecaster(CYTHON_UNUSED PyObject *__pyx_self, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_level, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_trend, __pyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t __pyx_v_phi, int __pyx_v_n_steps_min, int __pyx_v_n_steps_max) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
-  struct __pyx_opt_args_4tyme_16base_forecasters_28cython_exponential_smoothing_exp_smoothing_forecaster __pyx_t_2;
+  struct __pyx_opt_args_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_robust_exp_smoothing_forecaster __pyx_t_2;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("exp_smoothing_forecaster", 0);
+  __Pyx_RefNannySetupContext("robust_exp_smoothing_forecaster", 0);
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2.__pyx_n = 2;
   __pyx_t_2.n_steps_min = __pyx_v_n_steps_min;
   __pyx_t_2.n_steps_max = __pyx_v_n_steps_max;
-  __pyx_t_1 = ((PyObject *)__pyx_f_4tyme_16base_forecasters_28cython_exponential_smoothing_exp_smoothing_forecaster(__pyx_v_level, __pyx_v_trend, __pyx_v_phi, 0, &__pyx_t_2)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_f_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_robust_exp_smoothing_forecaster(__pyx_v_level, __pyx_v_trend, __pyx_v_phi, 0, &__pyx_t_2)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 135, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3869,7 +3869,7 @@ static PyObject *__pyx_pf_4tyme_16base_forecasters_28cython_exponential_smoothin
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("tyme.base_forecasters.cython_exponential_smoothing.exp_smoothing_forecaster", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("tyme.base_forecasters.robust_exponential_smoothing_cy.robust_exp_smoothing_forecaster", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -5470,25 +5470,25 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
 }
 
 static PyMethodDef __pyx_methods[] = {
-  {"exp_smoothing_filter", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothing_3exp_smoothing_filter, METH_VARARGS|METH_KEYWORDS, 0},
-  {"exp_smoothing_forecaster", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_4tyme_16base_forecasters_28cython_exponential_smoothing_5exp_smoothing_forecaster, METH_VARARGS|METH_KEYWORDS, 0},
+  {"robust_exp_smoothing_filter", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_3robust_exp_smoothing_filter, METH_VARARGS|METH_KEYWORDS, 0},
+  {"robust_exp_smoothing_forecaster", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_5robust_exp_smoothing_forecaster, METH_VARARGS|METH_KEYWORDS, 0},
   {0, 0, 0, 0}
 };
 
 #if PY_MAJOR_VERSION >= 3
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_cython_exponential_smoothing(PyObject* module); /*proto*/
+static int __pyx_pymod_exec_robust_exponential_smoothing_cy(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_cython_exponential_smoothing},
+  {Py_mod_exec, (void*)__pyx_pymod_exec_robust_exponential_smoothing_cy},
   {0, NULL}
 };
 #endif
 
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
-    "cython_exponential_smoothing",
+    "robust_exponential_smoothing_cy",
     0, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
@@ -5530,7 +5530,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_bn, __pyx_k_bn, sizeof(__pyx_k_bn), 0, 0, 1, 1},
   {&__pyx_n_s_bottleneck, __pyx_k_bottleneck, sizeof(__pyx_k_bottleneck), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
-  {&__pyx_n_s_cyOptStdDev, __pyx_k_cyOptStdDev, sizeof(__pyx_k_cyOptStdDev), 0, 0, 1, 1},
   {&__pyx_n_s_dtype, __pyx_k_dtype, sizeof(__pyx_k_dtype), 0, 0, 1, 1},
   {&__pyx_n_s_float, __pyx_k_float, sizeof(__pyx_k_float), 0, 0, 1, 1},
   {&__pyx_n_s_i, __pyx_k_i, sizeof(__pyx_k_i), 0, 0, 1, 1},
@@ -5549,10 +5548,11 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_u_numpy_core_umath_failed_to_impor, __pyx_k_numpy_core_umath_failed_to_impor, sizeof(__pyx_k_numpy_core_umath_failed_to_impor), 0, 1, 0, 0},
   {&__pyx_n_s_phi, __pyx_k_phi, sizeof(__pyx_k_phi), 0, 0, 1, 1},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
+  {&__pyx_n_s_std_cy, __pyx_k_std_cy, sizeof(__pyx_k_std_cy), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_n_s_trend, __pyx_k_trend, sizeof(__pyx_k_trend), 0, 0, 1, 1},
-  {&__pyx_kp_s_tyme_base_forecasters_cython_exp, __pyx_k_tyme_base_forecasters_cython_exp, sizeof(__pyx_k_tyme_base_forecasters_cython_exp), 0, 0, 1, 0},
-  {&__pyx_n_s_tyme_base_forecasters_cython_exp_2, __pyx_k_tyme_base_forecasters_cython_exp_2, sizeof(__pyx_k_tyme_base_forecasters_cython_exp_2), 0, 0, 1, 1},
+  {&__pyx_kp_s_tyme_base_forecasters_robust_exp, __pyx_k_tyme_base_forecasters_robust_exp, sizeof(__pyx_k_tyme_base_forecasters_robust_exp), 0, 0, 1, 0},
+  {&__pyx_n_s_tyme_base_forecasters_robust_exp_2, __pyx_k_tyme_base_forecasters_robust_exp_2, sizeof(__pyx_k_tyme_base_forecasters_robust_exp_2), 0, 0, 1, 1},
   {&__pyx_kp_u_unknown_dtype_code_in_numpy_pxd, __pyx_k_unknown_dtype_code_in_numpy_pxd, sizeof(__pyx_k_unknown_dtype_code_in_numpy_pxd), 0, 1, 0, 0},
   {&__pyx_n_s_v, __pyx_k_v, sizeof(__pyx_k_v), 0, 0, 1, 1},
   {&__pyx_n_s_x, __pyx_k_x, sizeof(__pyx_k_x), 0, 0, 1, 1},
@@ -5573,14 +5573,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":117
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":114
  *     cdef int xmax = x.shape[0]
  * 
  *     trend, level, sigma = robust_starting_params(x[:10])             # <<<<<<<<<<<<<<
  * 
  *     for i in range(xmax):
  */
-  __pyx_slice_ = PySlice_New(Py_None, __pyx_int_10, Py_None); if (unlikely(!__pyx_slice_)) __PYX_ERR(0, 117, __pyx_L1_error)
+  __pyx_slice_ = PySlice_New(Py_None, __pyx_int_10, Py_None); if (unlikely(!__pyx_slice_)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice_);
   __Pyx_GIVEREF(__pyx_slice_);
 
@@ -5639,17 +5639,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":12
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":12
  * 
  * @cython.boundscheck(False)
- * def cyOptStdDev(np.ndarray[DTYPE_t, ndim=1] a not None):             # <<<<<<<<<<<<<<
+ * def std_cy(np.ndarray[DTYPE_t, ndim=1] a not None):             # <<<<<<<<<<<<<<
  *     cdef Py_ssize_t i
  *     cdef Py_ssize_t n = a.shape[0]
  */
   __pyx_tuple__7 = PyTuple_Pack(5, __pyx_n_s_a, __pyx_n_s_i, __pyx_n_s_n, __pyx_n_s_m, __pyx_n_s_v); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
-  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tyme_base_forecasters_cython_exp, __pyx_n_s_cyOptStdDev, 12, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_tyme_base_forecasters_robust_exp, __pyx_n_s_std_cy, 12, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -5781,11 +5781,11 @@ static int __Pyx_modinit_function_import_code(void) {
 
 
 #if PY_MAJOR_VERSION < 3
-__Pyx_PyMODINIT_FUNC initcython_exponential_smoothing(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC initcython_exponential_smoothing(void)
+__Pyx_PyMODINIT_FUNC initrobust_exponential_smoothing_cy(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC initrobust_exponential_smoothing_cy(void)
 #else
-__Pyx_PyMODINIT_FUNC PyInit_cython_exponential_smoothing(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC PyInit_cython_exponential_smoothing(void)
+__Pyx_PyMODINIT_FUNC PyInit_robust_exponential_smoothing_cy(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC PyInit_robust_exponential_smoothing_cy(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -5852,7 +5852,7 @@ bad:
 }
 
 
-static CYTHON_SMALL_CODE int __pyx_pymod_exec_cython_exponential_smoothing(PyObject *__pyx_pyinit_module)
+static CYTHON_SMALL_CODE int __pyx_pymod_exec_robust_exponential_smoothing_cy(PyObject *__pyx_pyinit_module)
 #endif
 #endif
 {
@@ -5865,7 +5865,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_cython_exponential_smoothing(PyObj
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   if (__pyx_m) {
     if (__pyx_m == __pyx_pyinit_module) return 0;
-    PyErr_SetString(PyExc_RuntimeError, "Module 'cython_exponential_smoothing' has already been imported. Re-initialisation is not supported.");
+    PyErr_SetString(PyExc_RuntimeError, "Module 'robust_exponential_smoothing_cy' has already been imported. Re-initialisation is not supported.");
     return -1;
   }
   #elif PY_MAJOR_VERSION >= 3
@@ -5880,7 +5880,7 @@ if (!__Pyx_RefNanny) {
       Py_FatalError("failed to import 'refnanny' module");
 }
 #endif
-  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_cython_exponential_smoothing(void)", 0);
+  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_robust_exponential_smoothing_cy(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #ifdef __Pxy_PyFrame_Initialize_Offsets
   __Pxy_PyFrame_Initialize_Offsets();
@@ -5919,7 +5919,7 @@ if (!__Pyx_RefNanny) {
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("cython_exponential_smoothing", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("robust_exponential_smoothing_cy", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -5937,14 +5937,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_tyme__base_forecasters__cython_exponential_smoothing) {
+  if (__pyx_module_is_main_tyme__base_forecasters__robust_exponential_smoothing_cy) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "tyme.base_forecasters.cython_exponential_smoothing")) {
-      if (unlikely(PyDict_SetItemString(modules, "tyme.base_forecasters.cython_exponential_smoothing", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "tyme.base_forecasters.robust_exponential_smoothing_cy")) {
+      if (unlikely(PyDict_SetItemString(modules, "tyme.base_forecasters.robust_exponential_smoothing_cy", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -5965,7 +5965,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":1
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":1
  * import numpy as np             # <<<<<<<<<<<<<<
  * cimport numpy as np
  * import bottleneck as bn
@@ -5975,7 +5975,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":3
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":3
  * import numpy as np
  * cimport numpy as np
  * import bottleneck as bn             # <<<<<<<<<<<<<<
@@ -5987,7 +5987,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_bn, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":8
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":8
  * from libc.math cimport fabs, copysign, sqrt
  * 
  * DTYPE = np.float             # <<<<<<<<<<<<<<
@@ -6002,19 +6002,19 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_DTYPE, __pyx_t_2) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":12
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":12
  * 
  * @cython.boundscheck(False)
- * def cyOptStdDev(np.ndarray[DTYPE_t, ndim=1] a not None):             # <<<<<<<<<<<<<<
+ * def std_cy(np.ndarray[DTYPE_t, ndim=1] a not None):             # <<<<<<<<<<<<<<
  *     cdef Py_ssize_t i
  *     cdef Py_ssize_t n = a.shape[0]
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_4tyme_16base_forecasters_28cython_exponential_smoothing_1cyOptStdDev, NULL, __pyx_n_s_tyme_base_forecasters_cython_exp_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_1std_cy, NULL, __pyx_n_s_tyme_base_forecasters_robust_exp_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_cyOptStdDev, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_std_cy, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "tyme/base_forecasters/cython_exponential_smoothing.pyx":1
+  /* "tyme/base_forecasters/robust_exponential_smoothing_cy.pyx":1
  * import numpy as np             # <<<<<<<<<<<<<<
  * cimport numpy as np
  * import bottleneck as bn
@@ -6040,11 +6040,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init tyme.base_forecasters.cython_exponential_smoothing", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init tyme.base_forecasters.robust_exponential_smoothing_cy", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init tyme.base_forecasters.cython_exponential_smoothing");
+    PyErr_SetString(PyExc_ImportError, "init tyme.base_forecasters.robust_exponential_smoothing_cy");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -8158,7 +8158,7 @@ static void __Pyx_ReleaseBuffer(Py_buffer *view) {
 }
 
 /* ToPyCTupleUtility */
-  static PyObject* __pyx_convert__to_py___pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__etc(__pyx_ctuple_c6580__8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__and_8b51a____dunderpyx_t_4tyme_16base_forecasters_28cython_exponential_smoothing_DTYPE_t__etc__etc value) {
+  static PyObject* __pyx_convert__to_py___pyx_ctuple_6d695__e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__etc(__pyx_ctuple_6d695__e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__and_e9d64____dunderpyx_t_4tyme_16base_forecasters_31robust_exponential_smoothing_cy_DTYPE_t__etc__etc value) {
     PyObject* item = NULL;
     PyObject* result = PyTuple_New(3);
     if (!result) goto bad;

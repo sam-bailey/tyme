@@ -9,12 +9,12 @@
 - [x] Port Robust Existing Exponential Smoother   
 - [x] Benchmark Existing Robust Exponential Smoother  
 - [x] Migrate Robust Exponential Smoother to Cython  
-- [x] Benchmark New Robust Exponential Smoother 
+- [x] Benchmark New Robust Exponential Smoother -> 50x speedup
 - [ ] Comment Code
 
 ### Exponential Smoother 
-- [ ] Make Exponential Smoother (non-robust)  
-- [ ] Benchmark Exponential Smoother vs Robust
+- [x] Make Exponential Smoother (non-robust)  
+- [x] Benchmark Exponential Smoother vs Robust (2x speedup, but not robust to outliers)
 
 ### Facebook Prophet
 - [ ] Investigate if this can be used as a base forecaster

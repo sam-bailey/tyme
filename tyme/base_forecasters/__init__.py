@@ -1,1 +1,1 @@
-from . import exponential_smoothing
+from . import robust_exponential_smoothing

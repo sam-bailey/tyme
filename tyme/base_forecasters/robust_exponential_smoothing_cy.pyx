@@ -9,7 +9,7 @@ DTYPE = np.float
 ctypedef np.float_t DTYPE_t
 
 @cython.boundscheck(False)
-def cyOptStdDev(np.ndarray[DTYPE_t, ndim=1] a not None):
+def std_cy(np.ndarray[DTYPE_t, ndim=1] a not None):
     cdef Py_ssize_t i
     cdef Py_ssize_t n = a.shape[0]
     cdef double m = 0.0
@@ -18,10 +18,10 @@ def cyOptStdDev(np.ndarray[DTYPE_t, ndim=1] a not None):
     m /= n
     cdef double v = 0.0
     for i in range(n):
-        v += (a[i] - m)**2
+        v += (a[i] - m) ** 2
     return sqrt(v / n)
 
-@cython.boundscheck(False) # turn off bounds-checking for entire function
+@cython.boundscheck(False)  # turn off bounds-checking for entire function
 @cython.wraparound(False)
 cdef DTYPE_t mad(np.ndarray[DTYPE_t, ndim=1] x):
     cdef DTYPE_t med, std_mad, std, output
@@ -35,7 +35,7 @@ cdef DTYPE_t mad(np.ndarray[DTYPE_t, ndim=1] x):
         err[i] = fabs(x[i] - med)
 
     std_mad = 1.4826 * bn.median(err)
-    std = cyOptStdDev(x)
+    std = std_cy(x)
 
     if std_mad > tol:
         output = std_mad
@@ -46,7 +46,6 @@ cdef DTYPE_t mad(np.ndarray[DTYPE_t, ndim=1] x):
 
     return output
 
-
 cdef DTYPE_t huber(DTYPE_t x):
     cdef DTYPE_t output
     cdef DTYPE_t k = 3.0
@@ -56,7 +55,6 @@ cdef DTYPE_t huber(DTYPE_t x):
         output = copysign(k, x)
 
     return output
-
 
 cdef DTYPE_t bi_weight(DTYPE_t x):
     cdef DTYPE_t output
@@ -70,8 +68,7 @@ cdef DTYPE_t bi_weight(DTYPE_t x):
 
     return output
 
-
-@cython.boundscheck(False) # turn off bounds-checking for entire function
+@cython.boundscheck(False)  # turn off bounds-checking for entire function
 @cython.wraparound(False)
 cdef (DTYPE_t, DTYPE_t, DTYPE_t) robust_starting_params(np.ndarray[DTYPE_t, ndim=1] x0):
     cdef DTYPE_t trend_0, level_0, sigma_0
@@ -79,7 +76,7 @@ cdef (DTYPE_t, DTYPE_t, DTYPE_t) robust_starting_params(np.ndarray[DTYPE_t, ndim
     cdef np.ndarray[DTYPE_t, ndim=1] x0_diff_medians = np.zeros(x0.shape[0], dtype=DTYPE)
     cdef np.ndarray[DTYPE_t, ndim=1] levels = np.zeros(x0.shape[0], dtype=DTYPE)
     cdef np.ndarray[DTYPE_t, ndim=1] sigmas = np.zeros(x0.shape[0], dtype=DTYPE)
-    cdef int i,j
+    cdef int i, j
     cdef int xmax = x0.shape[0]
 
     for i in range(xmax):
@@ -102,10 +99,10 @@ cdef (DTYPE_t, DTYPE_t, DTYPE_t) robust_starting_params(np.ndarray[DTYPE_t, ndim
 
     return trend_0, level_0, sigma_0
 
-
-@cython.boundscheck(False) # turn off bounds-checking for entire function
+@cython.boundscheck(False)  # turn off bounds-checking for entire function
 @cython.wraparound(False)
-cpdef (DTYPE_t, DTYPE_t, DTYPE_t) exp_smoothing_filter(np.ndarray[DTYPE_t, ndim=1] x, DTYPE_t alpha, DTYPE_t beta, DTYPE_t phi):
+cpdef (DTYPE_t, DTYPE_t, DTYPE_t) robust_exp_smoothing_filter(np.ndarray[DTYPE_t, ndim=1] x, DTYPE_t alpha,
+                                                              DTYPE_t beta, DTYPE_t phi):
     # Initialize
     cdef DTYPE_t trend, level, sigma, robust_x_i, forecast
     cdef DTYPE_t new_trend, new_level, new_sigma
@@ -133,19 +130,17 @@ cpdef (DTYPE_t, DTYPE_t, DTYPE_t) exp_smoothing_filter(np.ndarray[DTYPE_t, ndim=
 
     return level, trend, sigma
 
-
-@cython.boundscheck(False) # turn off bounds-checking for entire function
+@cython.boundscheck(False)  # turn off bounds-checking for entire function
 @cython.wraparound(False)
-cpdef np.ndarray[DTYPE_t, ndim=1] exp_smoothing_forecaster(DTYPE_t level, DTYPE_t trend, DTYPE_t phi,
-                                                          int n_steps_min = 1, int n_steps_max = 1):
-
+cpdef np.ndarray[DTYPE_t, ndim=1] robust_exp_smoothing_forecaster(DTYPE_t level, DTYPE_t trend, DTYPE_t phi,
+                                                           int n_steps_min = 1, int n_steps_max = 1):
     cdef np.ndarray[DTYPE_t, ndim=1] _forecast = np.zeros(n_steps_max - n_steps_min + 1, dtype=DTYPE)
     cdef int k, i, j
 
     for i in range(n_steps_max - n_steps_min + 1):
         k = n_steps_min + i
-        _forecast[i-1] = level
-        for j in range(1, k):
-            _forecast[i-1] += trend * phi**j
+        _forecast[i] = level
+        for j in range(1, k + 1):
+            _forecast[i] += trend * phi ** j
 
     return _forecast
