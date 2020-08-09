@@ -4,7 +4,7 @@ from .exponential_smoothing_cy import exp_smoothing_filter, exp_smoothing_foreca
 
 
 class ExponentialSmoothing:
-    def __init__(self, alpha: float, beta: float, phi: float) -> None:
+    def __init__(self, alpha: float, beta: float, phi: float):
         self._alpha = np.float(alpha)
         self._beta = np.float(beta)
         self._phi = np.float(phi)

@@ -1,1 +1,1 @@
-from . import base_forecasters, utils
+from . import base_forecasters, utils, group_forecasters

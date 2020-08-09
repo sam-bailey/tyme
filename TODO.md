@@ -22,8 +22,10 @@
 ## Group Forecasters
 
 ### Maximum Likelihood Forecaster
-- [ ] Port Existing MLE group forecaster   
-- [ ] Port Consolidation Function
+- [ ] Port Existing MLE group forecaster (in progress)   
+- [x] Port Consolidation Function
+- [ ] Create timeseries class (in progress)
+- [ ] Add method for creating s matrix to timeseries class
 
 ### New Ideas
 - [ ] Gradient Boosting?
