@@ -30,3 +30,4 @@
 ### New Ideas
 - [ ] Gradient Boosting?
 - [ ] Random Exponential Smoothing?
+- [ ] Bayesian optimization?

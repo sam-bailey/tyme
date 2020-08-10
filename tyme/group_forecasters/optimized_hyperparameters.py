@@ -1,316 +1,176 @@
 from scipy.optimize import minimize
-import datetime as dt
 import numpy as np
 import pandas as pd
 import warnings
+from typing import Optional, List, TypeVar, Union, Tuple, Mapping
+
+from .loss_functions import LossFunctions
+from ..utils.timeseries import GroupedTimeSeries
+from ..base_forecasters.exponential_smoothing import ExponentialSmoothing
+from ..base_forecasters.robust_exponential_smoothing import RobustExponentialSmoothing
+
+NumpyArray = TypeVar("numpy.ndarray")
 
 
-def np_to_datetime(dt64):
-    ts = (dt64 - np.datetime64('1970-01-01T00:00:00Z')) / np.timedelta64(1, 's')
-    return dt.datetime.utcfromtimestamp(ts)
+class GroupRegressor:
+    _base_forecaster = None
 
-
-class RobustExponentialSmoothing:
-    def __init__(self, lookback_window, min_predict_window, max_predict_window,
-                 predict_agg, time_column, group_column, target_column, model_type="trend",
-                 loss="mae"
+    def __init__(self, lookback_window, min_predict_window, max_predict_window, agg_func,
+                 loss_function = LossFunctions(primary_loss="mae", monitoring_losses=["smape"]),
+                 verbose: bool = False
                  ):
+
+        assert self._base_forecaster is not None, "GroupRegressor must be subclassed and the _base_forecaster set"
+
         self._lookback_window = lookback_window
         self._min_predict_window = min_predict_window
         self._max_predict_window = max_predict_window
-        self._predict_agg = predict_agg
-        self._time_column = time_column
-        self._group_column = group_column
-        self._target_column = target_column
-        self._model_type = model_type
-        self._loss = loss
+        self._agg_func = agg_func
+        self._loss = loss_function
+        self._verbose = verbose
+        self._fitted_base_forecaster = None
 
-        self._starting_model_params = {
-            "level": [0.5],
-            "trend": [0.5, 0.05],
-            "damped-trend": [0.5, 0.05, 1.0]
-        }
+    def _evaluate(self, base_forecaster, X: NumpyArray, y: NumpyArray,
+                  with_cov: bool = False, time_id: Optional[NumpyArray] = None,
+                  group_id: Optional[NumpyArray] = None
+                  ) -> Union[Tuple[float, Mapping[str, float], NumpyArray], Tuple[float, Mapping[str, float]]]:
 
-        self._bounds_model_params = {
-            "level": [[0.0, 1.0]],
-            "trend": [[0.0, 1.0], [0.0, 1.0]],
-            "damped-trend": [[0.0, 1.0], [0.0, 1.0], [0.0, 1.0]]
-        }
+        def _filter_forecast_aggregate(x_history):
+            base_forecaster.filter(x_history)
+            _fcst = base_forecaster.forecast(
+                n_steps_min = self._min_predict_window,
+                n_steps_max = self._max_predict_window
+            )
+            return self._agg_func(_fcst)
 
-    @staticmethod
-    def _params_from_lst(model_type, x):
-        if model_type == "level":
-            return dict(alpha=x[0], beta=0, phi=0)
-        elif model_type == "trend":
-            return dict(alpha=x[0], beta=x[1], phi=1.0)
-        elif model_type == "damped-trend":
-            return dict(alpha=x[0], beta=x[1], phi=x[2])
-        else:
-            raise Exception("Unknown model type")
-
-    def _series_to_supervised(self, pdf, downsample_frac=1.0):
-        X_lst = []
-        y_lst = []
-        t_lst = []
-        group_lst = []
-
-        pdf_sorted = pdf.sort_values(self._time_column)
-        for group_ids, pdf_i in pdf_sorted.groupby(self._group_column):
-            ts_full = pdf_i[self._target_column].values
-            total_length = len(ts_full)
-            max_i = total_length - self._max_predict_window - self._lookback_window + 1
-
-            X_lst += [
-                ts_full[i:(i + self._lookback_window)]
-                for i in range(max_i)
-            ]
-            y_lst += [
-                self._predict_agg(
-                    ts_full[(i + self._lookback_window + self._min_predict_window - 1):(
-                            i + self._lookback_window + self._max_predict_window)]
-                )
-                for i in range(max_i)
-            ]
-            t_lst += [i for i in range(max_i)]
-            group_lst += [group_ids] * max_i
-
-        X = np.array(X_lst)
-        y = np.array(y_lst)
-        t = np.array(t_lst)
-        group = np.array(group_lst)
-
-        if downsample_frac < 1.0:
-            r = np.random.rand(len(y)) < downsample_frac
-            X = X[r, :]
-            y = y[r]
-            t = t[r]
-            group = group[r]
-
-        return X, y, t, group
-
-    @staticmethod
-    def _get_starting_params(model_params, x):
-        x0 = x[:10]
-        if model_params["phi"] == 0:  # level only model
-            trend_0 = 0
-            level_0 = np.median(x0)
-            sigma_0 = mad(x0 - level_0)
-        else:
-            trend_0 = np.median(
-                [np.median([(x0[i] - x0[j]) / float(i - j) for j in np.arange(len(x0)) if i != j]) for i in
-                 np.arange(len(x0))])
-            level_0 = np.median([x0[i] - trend_0 * float(i) for i in np.arange(len(x0))])
-            sigma_0 = mad([x0[i] - level_0 - trend_0 * float(i) for i in np.arange(len(x0))])
-
-        return {
-            "level_0": level_0,
-            "trend_0": trend_0,
-            "sigma_0": sigma_0
-        }
-
-    def _get_exp_smoothing_filter(self, model_params):
-        def exp_smoothing_filter(x):
-            # Initialize
-            starting_params = self._get_starting_params(model_params, x)
-            level = starting_params["level_0"]
-            trend = starting_params["trend_0"]
-            sigma = starting_params["sigma_0"]
-            lam_s = 0.1
-
-            for x_i in x:
-                forecast = level + model_params["phi"] * trend
-
-                new_sigma = sigma * np.sqrt(
-                    lam_s * biweight((x_i - forecast) / float(sigma)) +
-                    (1.0 - lam_s)
-                )
-                robust_x_i = forecast + huber((x_i - forecast) / float(new_sigma)) * float(new_sigma)
-                new_level = level + model_params["alpha"] * (robust_x_i - forecast)
-                new_trend = model_params["beta"] * (new_level - level) + (1.0 - model_params["beta"]) * model_params[
-                    "phi"] * trend
-
-                level = new_level
-                trend = new_trend
-                sigma = new_sigma
-
-            return level, trend
-
-        return exp_smoothing_filter
-
-    @staticmethod
-    def _get_forecaster(model_params, n_steps_min, n_steps_max):
-        def forecaster(level, trend):
-            return np.array([level + np.sum(model_params["phi"] ** (1.0 + np.arange(i))) * trend for i in
-                             range(n_steps_min, n_steps_max)])
-
-        return forecaster
-
-    @staticmethod
-    def _aic(loss, n_params):
-        return loss
-
-    def _loss_function(self, y_pred, y_true):
-        if self._loss == "mae":
-            return np.mean(np.abs(y_pred - y_true))
-        elif self._loss == "rmse":
-            return np.sqrt(np.mean((y_pred - y_true) ** 2))
-        elif self._loss == "smape":
-            err = (y_pred - y_true) / (0.5 * (y_pred + y_true))
-            err[y_pred == y_true] = 0
-            return np.mean(np.abs(err))
-
-    def _evaluate(self, params, X, y, with_cov=False, t=None, group_lst=None):
-        level_and_trend = map(self._get_exp_smoothing_filter(params), X)
-
-        forecaster = lambda x: self._get_forecaster(params, self._min_predict_window, self._max_predict_window)(*x)
-        forecasts = map(forecaster, level_and_trend)
-
-        aggregates = np.array(list(map(self._predict_agg, forecasts)))
+        y_pred = np.array(list(map(_filter_forecast_aggregate, X)))
+        loss = self._loss.primary_loss(y_pred=y_pred, y_true=y)
+        monitoring_losses = self._loss.monitoring_losses(y_pred=y_pred, y_true=y)
 
         if with_cov:
             df1 = pd.DataFrame({
-                "group": group_lst,
-                "t": t,
-                "err": aggregates - y
+                "group_id": group_id,
+                "time_id": time_id,
+                "err": y_pred - y
             })
             df2 = pd.DataFrame({
-                "group": group_lst,
-                "t": t,
-                "err": aggregates - y
+                "group_id": group_id,
+                "time_id": time_id,
+                "err": y_pred - y
             })
             cov_df = (
-                df1.merge(df2, on="t")
-                    .groupby(["group_x", "group_y"])
-                    .apply(lambda x: x['err_x'].cov(x['err_y']))
-                    .reset_index()
-            )
-
-            return self._loss_function(aggregates, y), cov_df
-        else:
-            return self._loss_function(aggregates, y)
-
-    def fit(self, pdf, downsample_frac=1.0, optimizer="L-BFGS-B"):
-        X, y, _, _ = self._series_to_supervised(pdf, downsample_frac)
-
-        if self._model_type == "best-aic":
-            warnings.warn(
-                "Best-aic not implemented yet, instead it just chooses the model with the smallest loss. Might as well just use damped-trend")
-            best_aic = np.inf
-            for model_type in self._starting_model_params.keys():
-                print("")
-                print("Trying " + model_type)
-                n_params = len(self._starting_model_params[model_type])
-
-                def _minimize_me(x, info):
-
-                    params = self._params_from_lst(model_type, x)
-                    loss = self._evaluate(params, X, y)
-                    if info['Nfeval'] % 10 == 0:
-                        print('Params={0}  Loss={1:9f}'.format(str(params), loss))
-                    info['Nfeval'] += 1
-                    return loss
-
-                _Nfeval = 0
-                _fit_results = minimize(
-                    fun=_minimize_me,
-                    x0=self._starting_model_params[model_type],
-                    bounds=self._bounds_model_params[model_type],
-                    method=optimizer,
-                    args=({'Nfeval': 0},)
-                )
-
-                aic = self._aic(_fit_results.fun, n_params)
-                print("Loss = {}".format(aic))
-                if aic < best_aic:
-                    print("Best so far!")
-                    best_aic = aic
-                    self._fit_results = _fit_results
-                    self.set_parameters(**self._params_from_lst(model_type, self._fit_results.x))
-
-        else:
-
-            def _minimize_me(x, info):
-
-                params = self._params_from_lst(self._model_type, x)
-                loss = self._evaluate(params, X, y)
-                if info['Nfeval'] % 10 == 0:
-                    print('Params={0}  Loss={1:9f}'.format(str(params), loss))
-                info['Nfeval'] += 1
-                return loss
-
-            self._fit_results = minimize(
-                fun=_minimize_me,
-                x0=self._starting_model_params[self._model_type],
-                bounds=self._bounds_model_params[self._model_type],
-                method=optimizer,
-                args=({'Nfeval': 0},)
-            )
-            self.set_parameters(**self._params_from_lst(self._model_type, self._fit_results.x))
-
-    def set_parameters(self, alpha, beta, phi):
-        self._model_params = {
-            "alpha": alpha,
-            "beta": beta,
-            "phi": phi
-        }
-
-    def predict(self, pdf):
-        pred_col_name = "{}_pred".format(self._target_column)
-
-        def _predict_ts(y):
-            try:
-                level, trend = self._get_exp_smoothing_filter(self._model_params)(y.values)
-                forecast = self._get_forecaster(self._model_params, self._min_predict_window, self._max_predict_window)(
-                    level, trend)
-                return self._predict_agg(forecast)
-            except:
-                warnings.warn("Failed for one prediction")
-                return None
-
-        output_pdf = (
-            pdf
-                .sort_values(self._time_column)
-                .groupby(self._group_column)
-                .agg({
-                self._target_column: _predict_ts
-            })
+                df1.merge(df2, on="time_id")
+                .groupby(["group_id_x", "group_id_y"])
+                .apply(lambda x: x['err_x'].cov(x['err_y']))
                 .reset_index()
-                .rename({self._target_column: pred_col_name}, axis='columns')
+            )
+
+            return loss, monitoring_losses, cov_df
+        else:
+            return loss, monitoring_losses
+
+    def fit(self, timeseries: GroupedTimeSeries, optimizer: str ="L-BFGS-B",
+            starting_params: Optional[List[float]] = None) -> None:
+
+        X, y, _, _ = timeseries.regression(
+            lookback_window=self._lookback_window,
+            min_predict_window=self._min_predict_window,
+            max_predict_window=self._max_predict_window,
+            agg_func=self._agg_func
         )
 
-        return output_pdf
+        if starting_params is None:
+            starting_params = self._base_forecaster.default_starting_params
+        param_bounds = self._base_forecaster.param_bounds
 
-    def forecast(self, pdf):
-        pred_col_name = "{}_forecast".format(self._target_column)
+        def _minimize_me(params_lst, info):
+            base_forecaster = self._base_forecaster.create_from_lst(params_lst)
+            loss, monitoring_losses = self._evaluate(base_forecaster, X, y)
 
-        out_pdf = pdf[[self._time_column, self._target_column, self._group_column]].copy()
+            if (info['Nfeval'] % 10 == 0) & self._verbose:
+                print('Params={0}  Loss={1:9f}   Monitoring Losses={2}'.format(
+                    str(params_lst), loss, str(monitoring_losses))
+                )
+            info['Nfeval'] += 1
 
-        out_pdf[self._time_column] = out_pdf[self._time_column].apply(lambda x: np_to_datetime(x).date())
-        out_pdf[pred_col_name] = None
+            return loss
+
+        self._fit_results = minimize(
+            fun=_minimize_me,
+            x0=starting_params,
+            bounds=param_bounds,
+            method=optimizer,
+            args=({'Nfeval': 0},)
+        )
+        self._fitted_base_forecaster = self._base_forecaster.create_from_lst(self._fit_results.x)
+
+    def forecast(self, timeseries: GroupedTimeSeries) -> pd.DataFrame:
+        pred_col_name = "{}_forecast".format(timeseries._target_column)
+
+        out_pdf = timeseries._raw_pdf[[
+            timeseries._time_column, timeseries._target_column, timeseries._group_id_column
+        ]]
+
+        out_pdf.loc[pred_col_name] = None
         out_lst = [out_pdf]
 
-        pdf_sorted = pdf.sort_values(self._time_column)
-        for group_ids, pdf_i in pdf_sorted.groupby(self._group_column):
-            x_max = np_to_datetime(pdf_i[self._time_column].values[-1]).date()
-            x_delta = (x_max - np_to_datetime(pdf_i[self._time_column].values[-2]).date()).days
+        for group_id, pdf_i in timeseries._raw_pdf.groupby(timeseries._group_id_column):
+            time_max = pdf_i[timeseries._time_column].values[-1]
 
-            y = pdf_i[self._target_column].values[-self._lookback_window:]
-            level, trend = self._get_exp_smoothing_filter(self._model_params)(y)
-            forecast = self._get_forecaster(self._model_params, 0, self._max_predict_window)(level, trend)
-            forecast_x = [x_max + dt.timedelta(days=int((1 + d) * x_delta)) for d in range(self._max_predict_window)]
+            y = pdf_i[timeseries._target_column].values[-self._lookback_window:]
+            self._fitted_base_forecaster.filter(y)
+            forecast_y = self._fitted_base_forecaster.forecast(1, self._max_predict_window)
+            forecast_time = [time_max + timeseries._frequency*(n+1.0) for n in range(self._max_predict_window)]
 
             pdf_out_i = pd.DataFrame({
-                self._time_column: forecast_x,
-                pred_col_name: forecast
+                timeseries._time_column: forecast_time,
+                pred_col_name: forecast_y
             })
-            pdf_out_i[self._target_column] = None
-
-            pdf_out_i[self._group_column] = group_ids
+            pdf_out_i[timeseries._target_column] = None
+            pdf_out_i[timeseries._group_id_column] = group_id
 
             out_lst.append(pdf_out_i)
 
         return pd.concat(out_lst, sort=True)
 
-    def score(self, pdf, with_cov=False, downsample_frac=1.0):
-        X, y, t, group_lst = self._series_to_supervised(pdf, downsample_frac)
-        return self._evaluate(self._model_params, X, y, with_cov=with_cov, t=t, group_lst=group_lst)
+    def predict(self, timeseries: GroupedTimeSeries) -> pd.DataFrame:
+        pred_col_name = "{}_pred".format(timeseries._target_column)
+
+        def _filter_forecast_aggregate(x_history):
+            self._fitted_base_forecaster.filter(x_history.values)
+            _fcst = self._fitted_base_forecaster.forecast(
+                n_steps_min = self._min_predict_window,
+                n_steps_max = self._max_predict_window
+            )
+            return self._agg_func(_fcst)
+
+        output_pdf = (
+            timeseries._raw_pdf
+            .sort_values(timeseries._time_column)
+            .groupby(timeseries._group_id_column)
+            .agg({
+                timeseries._target_column: _filter_forecast_aggregate
+            })
+            .reset_index()
+            .rename({timeseries._target_column: pred_col_name}, axis='columns')
+        )
+
+        return output_pdf
+
+    def score(self, timeseries: GroupedTimeSeries, with_cov: bool = False):
+        X, y, time_id, group_id = timeseries.regression(
+            lookback_window=self._lookback_window,
+            min_predict_window=self._min_predict_window,
+            max_predict_window=self._max_predict_window,
+            agg_func=self._agg_func
+        )
+        return self._evaluate(self._fitted_base_forecaster, X, y,
+                              with_cov=with_cov, time_id=time_id, group_id=group_id)
+
+
+class RobustExponentialSmoothingGroupRegressor(GroupRegressor):
+    _base_forecaster = RobustExponentialSmoothing
+
+
+class ExponentialSmoothingGroupRegressor(GroupRegressor):
+    _base_forecaster = ExponentialSmoothing
