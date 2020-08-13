@@ -3,7 +3,7 @@
 ## Base Forecasters
 
 ### Base Class
-- [ ] Create base class? Is this needed?
+- [x] Create base class? Is this needed?
 
 ### Robust Exponential Smoother 
 - [x] Port Robust Existing Exponential Smoother   
@@ -28,6 +28,4 @@
 - [ ] Add method for creating s matrix to timeseries class
 
 ### New Ideas
-- [ ] Gradient Boosting?
-- [ ] Random Exponential Smoothing?
-- [ ] Bayesian optimization?
+- [ ] Use the Exponential smoother as a baseline and then fit xgboost on top.

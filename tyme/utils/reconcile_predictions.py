@@ -1,5 +1,5 @@
 import numpy as np
-from numpy.linalg import multi_dot, inv
+from numpy.linalg import inv
 from typing import Optional, Tuple, TypeVar
 
 NumpyArray = TypeVar("numpy.ndarray")
@@ -19,19 +19,12 @@ def reconcile_predictions(predictions: NumpyArray, error_cov_matrix: NumpyArray,
     elif method == "ols":
         w = np.identity(n_predictions)
     elif method == "full":
-        w = error_cov_matrix  # Can be unstable...
+        w = error_cov_matrix  # Can be unstable... try shrinking it...
     else:
         raise Exception(ValueError("Incorrect method, but be either: wls, nseries, ols, full. You entered "+method))
 
-    w_inv = np.linalg.inv(w)
-    reconciliation_matrix = multi_dot([
-        s,
-        inv(multi_dot(
-            [s.T, w_inv, s]
-        )),
-        s.T,
-        w_inv
-    ])
-    reconciled_predictions = np.dot(reconciliation_matrix, predictions)
+    w_inv = inv(w)
+    reconciliation_matrix = s @ inv(s.T @ w_inv @ s) @ s.T @ w_inv  # @ = matrix multiplication
+    reconciled_predictions = reconciliation_matrix @ predictions
 
     return reconciled_predictions, reconciliation_matrix

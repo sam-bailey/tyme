@@ -2,21 +2,23 @@ from scipy.optimize import minimize
 import numpy as np
 import pandas as pd
 import warnings
-from typing import Optional, List, TypeVar, Union, Tuple, Mapping
+from typing import Optional, List, TypeVar, Union, Tuple, Mapping, Callable
 
 from .loss_functions import LossFunctions
 from ..utils.timeseries import GroupedTimeSeries
-from ..base_forecasters.exponential_smoothing import ExponentialSmoothing
-from ..base_forecasters.robust_exponential_smoothing import RobustExponentialSmoothing
+from ..base_forecasters import ExponentialSmoothing
+from ..base_forecasters import RobustExponentialSmoothing
+from ..base_forecasters.base import BaseForecaster
 
 NumpyArray = TypeVar("numpy.ndarray")
 
 
 class GroupRegressor:
-    _base_forecaster = None
+    _base_forecaster: BaseForecaster = None
 
-    def __init__(self, lookback_window, min_predict_window, max_predict_window, agg_func,
-                 loss_function = LossFunctions(primary_loss="mae", monitoring_losses=["smape"]),
+    def __init__(self, lookback_window: int, min_predict_window: int, max_predict_window: int,
+                 agg_func: Callable[[NumpyArray], float],
+                 loss_function: LossFunctions = LossFunctions(primary_loss="mae", monitoring_losses=["smape"]),
                  verbose: bool = False
                  ):
 
@@ -35,7 +37,7 @@ class GroupRegressor:
                   group_id: Optional[NumpyArray] = None
                   ) -> Union[Tuple[float, Mapping[str, float], NumpyArray], Tuple[float, Mapping[str, float]]]:
 
-        def _filter_forecast_aggregate(x_history):
+        def _filter_forecast_aggregate(x_history: NumpyArray) -> float:
             base_forecaster.filter(x_history)
             _fcst = base_forecaster.forecast(
                 n_steps_min = self._min_predict_window,
@@ -80,8 +82,8 @@ class GroupRegressor:
         )
 
         if starting_params is None:
-            starting_params = self._base_forecaster.default_starting_params
-        param_bounds = self._base_forecaster.param_bounds
+            starting_params = self._base_forecaster.get_default_starting_params()
+        param_bounds = self._base_forecaster.get_param_bounds()
 
         def _minimize_me(params_lst, info):
             base_forecaster = self._base_forecaster.create_from_lst(params_lst)

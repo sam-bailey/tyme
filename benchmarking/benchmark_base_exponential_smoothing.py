@@ -6,7 +6,7 @@ import timeit, functools
 
 
 def run_model(x, args, with_print=False):
-    model = ExponentialSmoothing(args.alpha, args.beta, args.phi)
+    model = ExponentialSmoothing(alpha=args.alpha, beta=args.beta, phi=args.phi)
     model.filter(x)
     forecast = model.forecast(n_steps_max=args.output_length)
 
@@ -14,8 +14,9 @@ def run_model(x, args, with_print=False):
         print(model)
         print(forecast)
 
+
 def run_robust_model(x, args, with_print=False):
-    model = RobustExponentialSmoothing(args.alpha, args.beta, args.phi)
+    model = RobustExponentialSmoothing(alpha=args.alpha, beta=args.beta, phi=args.phi)
     model.filter(x)
     forecast = model.forecast(n_steps_max=args.output_length)
 

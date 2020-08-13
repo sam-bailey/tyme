@@ -1,61 +1,31 @@
 import numpy as np
-from typing import Mapping, List
+from typing import Mapping, TypeVar
+from .base import BaseForecaster
 from .robust_exponential_smoothing_cy import robust_exp_smoothing_filter, robust_exp_smoothing_forecaster
 
+NumpyArray = TypeVar("numpy.ndarray")
 
-class RobustExponentialSmoothing:
-    default_starting_params = [
+
+class RobustExponentialSmoothing(BaseForecaster):
+    _forecaster_name = "RobustExponentialSmoothing"
+
+    _param_names = [
+        "alpha",
+        "beta",
+        "phi"
+    ]
+
+    _default_starting_params = [
         0.5,  # Alpha
         0.5,  # Beta
         0.5  # Phi
     ]
 
-    param_bounds = [
+    _param_bounds = [
         [0.0, 1.0],  # Alpha
         [0.0, 1.0],  # Beta
         [0.0, 1.0]  # Phi
     ]
-
-    @classmethod
-    def params_to_lst(cls, alpha: float, beta: float, phi: float) -> List[float]:
-        return [alpha, beta, phi]
-
-    @classmethod
-    def lst_to_params(cls, x: List[float]) -> Mapping[str,float]:
-        return {"alpha": x[0], "beta": x[1], "phi": x[2]}
-
-    @classmethod
-    def create_from_lst(cls, x: List[float]):
-        return cls(**cls.lst_to_params(x))
-
-    def __init__(self, alpha: float, beta: float, phi: float):
-        self._alpha = np.float(alpha)
-        self._beta = np.float(beta)
-        self._phi = np.float(phi)
-        self._state = None
-
-    def __repr__(self) -> str:
-        strings = [
-            "RobustExponentialSmoothingObject",
-            "\t Params:",
-            f"\t\t Alpha = {self._alpha}",
-            f"\t\t Beta = {self._beta}",
-            f"\t\t Phi = {self._phi}"
-        ]
-        if self._state is None:
-            strings += ["\t No State Yet"]
-        else:
-            level = self._state["level"]
-            trend = self._state["trend"]
-            sigma = self._state["sigma"]
-            strings += [
-                "\t Current State:",
-                f"\t\t Level={level}",
-                f"\t\t Trend={trend}",
-                f"\t\t Sigma={sigma}"
-            ]
-
-        return "\n".join(strings)
 
     def set_state(self, level: float, trend: float, sigma: float) -> None:
         self._state = dict(
@@ -64,21 +34,20 @@ class RobustExponentialSmoothing:
             sigma=np.float(sigma)
         )
 
-    def get_state(self) -> Mapping[str,float]:
+    def get_state(self) -> Mapping[str, float]:
         return self._state
 
-    def filter(self, x: np.ndarray) -> None:
-        x_np = np.array(x).astype(float)
-        level, trend, sigma = robust_exp_smoothing_filter(x, self._alpha, self._beta, self._phi)
+    def filter(self, x: NumpyArray) -> None:
+        level, trend, sigma = robust_exp_smoothing_filter(x.astype(float), **self._params)
         self.set_state(level, trend, sigma)
 
-    def forecast(self, n_steps_min: int = 1, n_steps_max: int = 1) -> np.ndarray:
+    def forecast(self, n_steps_min: int = 1, n_steps_max: int = 1) -> NumpyArray:
         assert self._state is not None, "You have not set the state yet. Use either set_state() or filter() first."
 
         return robust_exp_smoothing_forecaster(
-            level = self._state["level"],
-            trend = self._state["trend"],
-            phi = self._phi,
-            n_steps_min = n_steps_min,
-            n_steps_max = n_steps_max
+            level=self._state["level"],
+            trend=self._state["trend"],
+            phi=self._params["phi"],
+            n_steps_min=n_steps_min,
+            n_steps_max=n_steps_max
         )
