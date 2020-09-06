@@ -10,3 +10,4 @@ pyparsing
 python-dateutil
 pytz
 six
+scipy

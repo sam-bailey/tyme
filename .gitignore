@@ -5,3 +5,9 @@ __pycache__
 build
 .DS_Store
 .vscode
+*.pyc
+*.pyd
+src/cython/*.c
+build
+dist
+*.egg-info
