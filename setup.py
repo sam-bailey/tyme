@@ -12,6 +12,8 @@ import sys
 
 from setuptools import setup
 from setuptools import Extension
+from distutils.command.sdist import sdist as _sdist
+
 import numpy
 
 import _version
@@ -19,29 +21,77 @@ import _version
 if USE_CYTHON:
     try:
         from Cython.Distutils import build_ext
+        from Cython.Build import cythonize
     except ImportError:
         if USE_CYTHON=='auto':
             USE_CYTHON=False
         else:
             raise
 
-cmdclass = { }
-ext_modules = [ ]
+class CythonModule(object):
+    def __init__(self, name: str, path: str):
+        self.name = name
+        self.path = path
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @name.setter
+    def name(self, name: str) -> None:
+        self._name = name
+
+    @property
+    def path(self) -> str:
+        return self._path
+
+    @path.setter
+    def path(self, path: str) -> None:
+        self._path = path
+
+    @property
+    def pyx(self) -> str:
+        return self.path+".pyx"
+
+    @property
+    def c(self) -> str:
+        return self.path+".c"
+
+cython_modules = [
+    CythonModule(
+        name="tyme.base_forecasters.exponential_smoothing_cy",
+        path="src/cython/exponential_smoothing_cy"
+    ),
+    CythonModule(
+        name="tyme.base_forecasters.robust_exponential_smoothing_cy",
+        path="src/cython/robust_exponential_smoothing_cy"
+    )
+]
 
 if sys.version_info[0] == 2:
     raise Exception('Python 2.x is no longer supported')
 
 if USE_CYTHON:
-    ext_modules += [
-        Extension("tyme.base_forecasters.exponential_smoothing_cy", [ "src/cython/exponential_smoothing_cy.pyx" ]),
-        Extension("tyme.base_forecasters.robust_exponential_smoothing_cy", [ "src/cython/robust_exponential_smoothing_cy.pyx" ])
+    class sdist(_sdist):
+        def run(self):
+            # Make sure the compiled Cython files in the distribution are up-to-date
+            cythonize([module.pyx for module in cython_modules])
+            _sdist.run(self)
+
+    ext_modules = [
+        Extension(module.name, [module.pyx])
+        for module in cython_modules
     ]
-    cmdclass.update({ 'build_ext': build_ext })
+    cmdclass = dict(
+        build_ext=build_ext,
+        sdist=sdist
+    )
 else:
-    ext_modules += [
-        Extension("tyme.base_forecasters.exponential_smoothing_cy", [ "src/cython/exponential_smoothing_cy.c" ]),
-        Extension("tyme.base_forecasters.robust_exponential_smoothing_cy", [ "src/cython/robust_exponential_smoothing_cy.c" ])
+    ext_modules = [
+        Extension(module.name, [module.c])
+        for module in cython_modules
     ]
+    cmdclass = { }
 
 setup(
     name='tyme',

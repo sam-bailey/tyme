@@ -1,6 +1,6 @@
 include *.md
 include LICENSE.txt
-recursive-include cython *.pyx
-recursive-include cython *.c
-recursive-include cython *.h
+recursive-include src/cython *.pyx
+recursive-include src/cython *.c
+recursive-include src/cython *.h
 recursive-include tests *.py

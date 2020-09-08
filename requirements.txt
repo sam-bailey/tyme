@@ -1,8 +1,6 @@
 Bottleneck
 cycler
-Cython
 kiwisolver
-matplotlib
 numpy
 pandas
 Pillow

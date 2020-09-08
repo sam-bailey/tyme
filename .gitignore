@@ -11,3 +11,4 @@ src/cython/*.c
 build
 dist
 *.egg-info
+MANIFEST
