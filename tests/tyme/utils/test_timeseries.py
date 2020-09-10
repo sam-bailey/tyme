@@ -3,7 +3,7 @@ import pandas as pd
 from tyme.utils import GroupedTimeSeries
 
 
-if __name__ == "__main__":
+def test_timeseries_regression():
     input_df = pd.DataFrame({
         "group_a": ["a"]*15 + ["b"]*15,
         "group_b": [1,2]*15,
@@ -25,11 +25,11 @@ if __name__ == "__main__":
         agg_func=np.sum
     )
 
-    print(input_df)
+    # print(input_df)
 
-    for x_i, y_i, time_id_i, group_id_i in zip(*out):
-        print("")
-        print(f"group_id = {group_id_i}")
-        print(f"time_id = {time_id_i}")
-        print(f"x_i = {x_i}")
-        print(f"y_i = {y_i}")
+    # for x_i, y_i, time_id_i, group_id_i in zip(*out):
+    #     print("")
+    #     print(f"group_id = {group_id_i}")
+    #     print(f"time_id = {time_id_i}")
+    #     print(f"x_i = {x_i}")
+    #     print(f"y_i = {y_i}")
