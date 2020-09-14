@@ -40,7 +40,7 @@ def simple_a_b_regression_output():
 
 
 @pytest.mark.parametrize("output_idx", [0, 1, 2, 3])
-def test_timeseries_regression_X(
+def test_timeseries_regression(
     simple_a_b_input_df, simple_a_b_regression_output, output_idx
 ):
 
