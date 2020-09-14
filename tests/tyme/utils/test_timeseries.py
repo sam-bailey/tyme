@@ -20,7 +20,16 @@ def simple_a_b_input_df():
 @pytest.fixture()
 def simple_a_b_regression_output():
     X = np.array(
-        [[0, 2], [2, 4], [1, 3], [3, 5], [10, 12], [12, 14], [11, 13], [13, 15]]
+        [
+            [0, 2],
+            [2, 4],
+            [1, 3],
+            [3, 5],
+            [10, 12],
+            [12, 14],
+            [11, 13],
+            [13, 15],
+        ]
     )
     y = np.array([10, 14, 12, 16, 30, 34, 32, 36])
     group_idx = np.array(
@@ -52,7 +61,10 @@ def test_timeseries_regression(
     )
 
     output = my_timeseries.regression(
-        lookback_window=2, min_predict_window=1, max_predict_window=2, agg_func=np.sum
+        lookback_window=2,
+        min_predict_window=1,
+        max_predict_window=2,
+        agg_func=np.sum,
     )
 
     np.testing.assert_array_equal(
