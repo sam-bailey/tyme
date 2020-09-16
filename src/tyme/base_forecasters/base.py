@@ -14,6 +14,7 @@ class BaseForecaster:
         _param_bounds
         _forecaster_name
     """
+
     _param_names: List[str] = None
     _default_starting_params: List[float] = None
     _param_bounds: List[List[float]] = None
@@ -34,7 +35,9 @@ class BaseForecaster:
     @classmethod
     def lst_to_params(cls, x: List[float]) -> Mapping[str, float]:
         assert len(x) == len(cls._param_names)
-        return {cls._param_names[i]: x[i] for i in range(len(cls._param_names))}
+        return {
+            cls._param_names[i]: x[i] for i in range(len(cls._param_names))
+        }
 
     @classmethod
     def create_from_lst(cls, x: List[float]):
@@ -46,17 +49,19 @@ class BaseForecaster:
 
     def __init__(self, **params: Mapping[str, float]):
         assert self._param_names is not None, "Must define _param_names"
-        assert self._default_starting_params is not None, "Must define _default_starting_params"
+        assert (
+            self._default_starting_params is not None
+        ), "Must define _default_starting_params"
         assert self._param_bounds is not None, "Must define _param_bounds"
-        assert self._forecaster_name is not None, "Must define _forecaster_name"
+        assert (
+            self._forecaster_name is not None
+        ), "Must define _forecaster_name"
 
         self._params = {_n: params[_n] for _n in self._param_names}
         self._state = None
 
     def __repr__(self) -> str:
-        strings = [
-            self._forecaster_name,
-            "\t Params:"]
+        strings = [self._forecaster_name, "\t Params:"]
 
         for name, value in self._params.items():
             strings.append(f"\t\t {name} = {value}")
@@ -71,7 +76,9 @@ class BaseForecaster:
         return "\n".join(strings)
 
     def filter(self, x: NumpyArray) -> None:
-        raise(Exception("No filter method set"))
+        raise (Exception("No filter method set"))
 
-    def forecast(self, n_steps_min: int = 1, n_steps_max: int = 1) -> NumpyArray:
-        raise(Exception("No forecast method set"))
+    def forecast(
+        self, n_steps_min: int = 1, n_steps_max: int = 1
+    ) -> NumpyArray:
+        raise (Exception("No forecast method set"))
