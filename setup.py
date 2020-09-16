@@ -102,7 +102,7 @@ requirements = [
     "Cython",
 ]
 
-requirements_dev = ["pytest", "Cython", "pre-commit", "tox"]
+requirements_dev = ["pytest", "pytest-cov", "Cython", "pre-commit", "tox"]
 
 setup(
     name="tyme",
