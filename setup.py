@@ -106,7 +106,7 @@ requirements_dev = ["pytest", "pytest-cov", "Cython", "pre-commit", "tox"]
 
 setup(
     name="tyme",
-    version="0.1.0",
+    # version="0.1.0",
     description="A timeseries forecasting package, specialised in forecasting grouped timeseries",
     author="Sam Bailey",
     author_email="samcbailey90@gmail.com",
