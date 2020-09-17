@@ -21,17 +21,20 @@ def reconcile_predictions(
             n_predictions
         )  # Only take diagonal elements, for stability
     elif method == "nseries":
+        assert (
+            n_bottom_level_series is not None
+        ), "n_bottom_level_series must be defined for method='nseries'"
         w = np.dot(s, np.ones((n_bottom_level_series, 1))) * np.identity(
             n_predictions
         )
     elif method == "ols":
         w = np.identity(n_predictions)
     elif method == "full":
-        w = error_cov_matrix  # Can be unstable... try shrinking it...
+        w = error_cov_matrix
     else:
         raise Exception(
             ValueError(
-                "Incorrect method, but be either: wls, nseries, ols, full. You entered "
+                "Incorrect method, must be either: wls, nseries, ols, full. You entered "
                 + method
             )
         )

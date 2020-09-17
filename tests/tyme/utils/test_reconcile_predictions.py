@@ -1,28 +1,100 @@
 import numpy as np
 import pandas as pd
-from tyme.utils import GroupedTimeSeries
+import pytest
+
+from tyme.utils import reconcile_predictions
 
 
-def test_reconcile_predictions():
-    input_df = pd.DataFrame(
-        {
-            "group_a": ["a"] * 15 + ["b"] * 15,
-            "group_b": [1, 2] * 15,
-            "yyyy_mm_dd": [f"2020-01-{d:02}" for d in range(1, 31)],
-            "y": list(range(30)),
-        }
+_n_bottom_level_series = 5
+_n_series_total = 8
+
+
+@pytest.fixture()
+def predictions():
+    return np.array([55.0, 32.0, 15.0, 32.0, 10.0, 90.0, 50.0, 150.0])
+
+
+@pytest.fixture()
+def error_cov_matrix():
+    return (
+        np.array(
+            [
+                [30.0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
+                [0.5, 20.0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
+                [0.5, 0.5, 8.0, 0.5, 0.5, 0.5, 0.5, 0.5],
+                [0.5, 0.5, 0.5, 10.0, 0.5, 0.5, 0.5, 0.5],
+                [0.5, 0.5, 0.5, 0.5, 2.0, 0.5, 0.5, 0.5],
+                [0.5, 0.5, 0.5, 0.5, 0.5, 70.0, 0.5, 0.5],
+                [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 60.0, 0.5],
+                [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 80.0],
+            ]
+        )
+        ** 2
     )
 
-    my_timeseries = GroupedTimeSeries(
-        time_series_pd=input_df,
-        group_columns=["group_a", "group_b"],
-        time_column="yyyy_mm_dd",
-        target_column="y",
-    )
 
-    _ = my_timeseries.regression(
-        lookback_window=3,
-        min_predict_window=1,
-        max_predict_window=2,
-        agg_func=np.sum,
-    )
+@pytest.fixture()
+def s_matrix():
+    s = np.zeros((_n_series_total, _n_bottom_level_series), dtype=int)
+    s[0, 0] = 1
+    s[1, 1] = 1
+    s[2, 2] = 1
+    s[3, 3] = 1
+    s[4, 4] = 1
+    s[5, 0] = 1
+    s[5, 1] = 1
+    s[6, 2] = 1
+    s[6, 3] = 1
+    s[6, 4] = 1
+    s[7, :] = 1
+    return s
+
+
+@pytest.mark.parametrize(
+    "n_bottom_level_series", [None, _n_bottom_level_series]
+)
+@pytest.mark.parametrize(
+    "method", ["ols", "wls", "nseries", "full", "__unknown__"]
+)
+def test_reconcile_predictions(
+    predictions, error_cov_matrix, s_matrix, n_bottom_level_series, method
+):
+    if method == "__unknown__":
+        with pytest.raises(Exception):
+            reconciled_predictions, _ = reconcile_predictions(
+                predictions=predictions,
+                error_cov_matrix=error_cov_matrix,
+                s=s_matrix,
+                n_bottom_level_series=n_bottom_level_series,
+                method=method,
+            )
+    elif (method == "nseries") & (n_bottom_level_series is None):
+        with pytest.raises(AssertionError):
+            (
+                reconciled_predictions,
+                reconciliation_matrix,
+            ) = reconcile_predictions(
+                predictions=predictions,
+                error_cov_matrix=error_cov_matrix,
+                s=s_matrix,
+                n_bottom_level_series=n_bottom_level_series,
+                method=method,
+            )
+    else:
+        reconciled_predictions, reconciliation_matrix = reconcile_predictions(
+            predictions=predictions,
+            error_cov_matrix=error_cov_matrix,
+            s=s_matrix,
+            n_bottom_level_series=n_bottom_level_series,
+            method=method,
+        )
+
+        np.testing.assert_approx_equal(
+            np.sum(reconciled_predictions[:2]), reconciled_predictions[5]
+        )
+        np.testing.assert_approx_equal(
+            np.sum(reconciled_predictions[2:5]), reconciled_predictions[6]
+        )
+        np.testing.assert_approx_equal(
+            np.sum(reconciled_predictions[:5]), reconciled_predictions[7]
+        )

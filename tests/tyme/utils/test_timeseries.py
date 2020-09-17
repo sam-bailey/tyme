@@ -82,11 +82,9 @@ def test_timeseries_forecasting(simple_a_b_input_df, format):
         target_column="y",
     )
 
-    output = my_timeseries.forecasting(
+    my_timeseries.forecasting(
         lookback_window=2, max_predict_window=2, format=format
     )
-
-    assert output is None, "Not Implemented Yet"
 
 
 def test_timeseries_s_matrix(simple_a_b_input_df):
@@ -98,9 +96,7 @@ def test_timeseries_s_matrix(simple_a_b_input_df):
         target_column="y",
     )
 
-    output = my_timeseries.get_s_matrix()
-
-    assert output is None, "Not Implemented Yet"
+    my_timeseries.get_s_matrix()
 
 
 @pytest.mark.parametrize(
