@@ -44,7 +44,7 @@ class BaseForecaster:
         return cls(**cls.lst_to_params(x))
 
     @classmethod
-    def default_params(cls, x: List[float]):
+    def default_params(cls):
         return cls(**cls.lst_to_params(cls._default_starting_params))
 
     def __init__(self, **params: Mapping[str, float]):
@@ -61,6 +61,12 @@ class BaseForecaster:
         self._state = None
 
     def __repr__(self) -> str:
+        kwargs_str = ", ".join(
+            [f"{k}={self._params[k]}" for k in self._param_names]
+        )
+        return f"{self._forecaster_name}({kwargs_str})"
+
+    def __str__(self) -> str:
         strings = [self._forecaster_name, "\t Params:"]
 
         for name, value in self._params.items():
