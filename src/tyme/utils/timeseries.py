@@ -17,6 +17,9 @@ class GroupedTimeSeries:
     ):
         self._time_column = time_column
         self._group_columns = group_columns
+        self._group_column_dtypes = {
+            c: time_series_pd.dtypes[c].type for c in group_columns
+        }
         self._group_aggregation_value = group_aggregation_value  # When a group has this value, it is the sum over all.
         self._group_id_column = "_group_id"
         self._target_column = target_column
@@ -38,7 +41,10 @@ class GroupedTimeSeries:
         )
 
     def _group_id_to_cols(self, group_id: str) -> Mapping[str, Any]:
-        output = dict(map(lambda x: x.split("="), group_id.split("__")))
+        output_str = dict(map(lambda x: x.split("="), group_id.split("__")))
+        output = {
+            k: self._group_column_dtypes[k](v) for k, v in output_str.items()
+        }
 
         for col in self._group_columns:
             assert (
@@ -146,7 +152,7 @@ class GroupedTimeSeries:
         :param format: How to structure the target variable for multi-step forecasting. 'long' or 'wide'
         :return: X, y, time_id, group_id, step_ahead_id (if format = long)
         """
-        pass
+        return None
 
     def get_s_matrix(self):
-        pass
+        return None
