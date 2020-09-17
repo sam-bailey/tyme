@@ -13,7 +13,7 @@ def _rmse(y_pred: NumpyArray, y_true: NumpyArray) -> float:
 
 
 def _smape(y_pred: NumpyArray, y_true: NumpyArray) -> float:
-    err = (y_pred - y_true) / (0.5 * (y_pred + y_true))
+    err = (y_pred - y_true) / (0.5 * (np.abs(y_pred) + np.abs(y_true)))
     err[y_pred == y_true] = 0
     return np.mean(np.abs(err))
 
