@@ -61,7 +61,7 @@ def test_reconcile_predictions(
 ):
     if method == "__unknown__":
         with pytest.raises(Exception):
-            reconciled_predictions, _ = reconcile_predictions(
+            reconcile_predictions(
                 predictions=predictions,
                 error_cov_matrix=error_cov_matrix,
                 s=s_matrix,
@@ -70,10 +70,7 @@ def test_reconcile_predictions(
             )
     elif (method == "nseries") & (n_bottom_level_series is None):
         with pytest.raises(AssertionError):
-            (
-                reconciled_predictions,
-                reconciliation_matrix,
-            ) = reconcile_predictions(
+            reconcile_predictions(
                 predictions=predictions,
                 error_cov_matrix=error_cov_matrix,
                 s=s_matrix,
@@ -81,7 +78,7 @@ def test_reconcile_predictions(
                 method=method,
             )
     else:
-        reconciled_predictions, reconciliation_matrix = reconcile_predictions(
+        reconciled_predictions, _ = reconcile_predictions(
             predictions=predictions,
             error_cov_matrix=error_cov_matrix,
             s=s_matrix,

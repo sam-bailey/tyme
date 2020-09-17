@@ -1,7 +1,7 @@
 import numpy as np
 from typing import Mapping, TypeVar
 from .base import BaseForecaster
-from .robust_exponential_smoothing_cy import (
+from .robust_exponential_smoothing_cy import (  # pylint: disable=no-name-in-module
     robust_exp_smoothing_filter,
     robust_exp_smoothing_forecaster,
 )
